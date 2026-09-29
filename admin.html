@@ -5,25 +5,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TS History | Admin Panel</title>
+<title>TS History — Admin Panel</title>
 
 <style>
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 body{
     font-family:Georgia,"Times New Roman",serif;
-    background:#eee9df;
+    background:#f1ede5;
     color:#29251f;
 }
 
 /* ================= LOGIN ================= */
 
-.admin-login{
+#loginScreen{
     min-height:100vh;
     display:flex;
     align-items:center;
@@ -31,204 +30,171 @@ body{
     padding:20px;
 
     background:
-    linear-gradient(
-        rgba(24,22,18,.94),
-        rgba(24,22,18,.97)
-    ),
-    radial-gradient(
-        circle,
-        #806c49,
-        #1e1c18 70%
-    );
+        radial-gradient(circle at center,#705d3c 0,#29251f 45%,#171613 100%);
 }
 
 .login-box{
     width:100%;
     max-width:440px;
     background:#fffdf8;
-    padding:40px;
-    border-radius:10px;
-    box-shadow:0 25px 70px rgba(0,0,0,.4);
-}
-
-.login-logo{
+    padding:42px;
+    border-radius:12px;
+    box-shadow:0 30px 80px rgba(0,0,0,.45);
     text-align:center;
-    margin-bottom:30px;
 }
 
-.login-logo h1{
-    color:#9b773f;
+.login-symbol{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.login-box h1{
+    color:#9c783f;
     letter-spacing:4px;
 }
 
-.login-logo p{
+.login-box .subtitle{
     color:#777;
-    margin-top:8px;
+    margin:8px 0 30px;
+    font-size:13px;
+    letter-spacing:2px;
 }
 
-.form-group{
+.input-group{
+    text-align:left;
     margin-bottom:18px;
 }
 
-.form-group label{
+.input-group label{
     display:block;
     margin-bottom:7px;
+    font-size:14px;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea{
+.input-group input,
+.input-group textarea,
+.input-group select{
     width:100%;
     padding:13px;
-
-    border:1px solid #cfc5b3;
-    border-radius:5px;
-
-    background:white;
+    border:1px solid #d2c8b8;
+    border-radius:6px;
+    background:#fff;
     font-family:inherit;
     font-size:15px;
 }
 
-.form-group textarea{
-    min-height:130px;
-    resize:vertical;
-}
-
-.btn{
-    border:0;
-    padding:13px 20px;
-    border-radius:5px;
-
-    font-family:inherit;
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-.btn-gold{
+.login-button{
     width:100%;
-    background:#a98248;
-    color:white;
+    padding:14px;
+    border:0;
+    border-radius:6px;
+    background:#a27d43;
+    color:#fff;
+    font-family:inherit;
+    font-size:15px;
+    cursor:pointer;
 }
 
-.btn-gold:hover{
-    background:#8d6b3b;
+.login-button:hover{
+    background:#866536;
 }
 
 .login-error{
     display:none;
     margin-top:15px;
-    padding:12px;
-
-    background:#f7dddd;
-    color:#8d2929;
-
+    background:#f5dddd;
+    color:#8b302a;
+    padding:11px;
     border-radius:5px;
-    text-align:center;
 }
 
-/* ================= ADMIN ================= */
+/* ================= APP ================= */
 
-.admin-app{
+#adminApp{
     display:none;
-    min-height:100vh;
 }
 
-.admin-app.active{
-    display:flex;
+#adminApp.active{
+    display:block;
 }
 
-/* SIDEBAR */
+/* ================= SIDEBAR ================= */
 
 .sidebar{
-    width:260px;
-    min-height:100vh;
-
     position:fixed;
     left:0;
     top:0;
+    width:265px;
+    height:100vh;
+    overflow-y:auto;
 
     background:#211f1b;
-    color:#eee5d2;
+    color:#e9dfcc;
+    padding:22px 14px;
 
-    padding:25px 15px;
-
-    border-right:1px solid #66563b;
+    border-right:1px solid #625239;
 }
 
-.brand{
+.logo{
     text-align:center;
-    padding:10px 0 30px;
+    padding:10px 5px 30px;
 }
 
-.brand h1{
-    color:#dfbd76;
+.logo h1{
+    color:#dfbc72;
     letter-spacing:4px;
-    font-size:25px;
+    font-size:24px;
 }
 
-.brand p{
-    color:#aaa293;
-    font-size:11px;
+.logo p{
+    color:#999185;
+    font-size:10px;
+    letter-spacing:3px;
+    margin-top:6px;
+}
+
+.menu-label{
+    color:#756d60;
+    font-size:10px;
     letter-spacing:2px;
-    margin-top:5px;
+    margin:18px 10px 7px;
 }
 
-.menu-title{
-    color:#817865;
-    font-size:11px;
-    letter-spacing:2px;
-    padding:15px 12px 8px;
-}
-
-.sidebar button{
+.menu-btn{
     width:100%;
-
     border:0;
     background:transparent;
-
-    color:#d7d0c3;
-
-    text-align:left;
-
-    padding:13px 14px;
+    color:#d6cec0;
+    padding:12px 13px;
     margin-bottom:4px;
-
-    border-radius:5px;
-
+    border-radius:6px;
+    text-align:left;
     font-family:inherit;
-    font-size:14px;
-
     cursor:pointer;
+    transition:.2s;
 }
 
-.sidebar button:hover,
-.sidebar button.active{
-    background:#373229;
-    color:#dfbd76;
+.menu-btn:hover,
+.menu-btn.active{
+    background:#39342c;
+    color:#e0bd73;
 }
 
 .logout{
-    margin-top:30px!important;
-    color:#d58b82!important;
+    color:#d98d83;
 }
 
-/* MAIN */
+/* ================= MAIN ================= */
 
 .main{
-    width:calc(100% - 260px);
-    margin-left:260px;
+    margin-left:265px;
     min-height:100vh;
 }
 
-/* TOPBAR */
-
 .topbar{
-    height:75px;
-
+    height:74px;
     background:#fffdf8;
-
-    border-bottom:1px solid #ddd4c5;
+    border-bottom:1px solid #ddd4c4;
 
     display:flex;
     align-items:center;
@@ -238,23 +204,20 @@ body{
 
     position:sticky;
     top:0;
-
-    z-index:100;
+    z-index:20;
 }
 
 .topbar h2{
-    font-size:23px;
+    font-size:22px;
 }
 
-.admin-badge{
-    background:#2f2b24;
-    color:#e0c17f;
-    padding:8px 13px;
+.admin-tag{
+    padding:8px 14px;
+    background:#2e2a24;
+    color:#e1bf78;
     border-radius:20px;
     font-size:13px;
 }
-
-/* CONTENT */
 
 .content{
     padding:30px;
@@ -268,49 +231,40 @@ body{
     display:block;
 }
 
-/* DASHBOARD */
+/* ================= DASHBOARD ================= */
 
-.welcome{
-    background:
-    linear-gradient(
-        120deg,
-        #302b24,
-        #51432e
-    );
-
-    color:white;
-
+.hero-admin{
     padding:30px;
-    border-radius:9px;
-
+    border-radius:10px;
     margin-bottom:25px;
+
+    background:
+        linear-gradient(120deg,#2b2721,#51432e);
+
+    color:#fff;
 }
 
-.welcome h1{
-    color:#e2c27f;
-    margin-bottom:10px;
+.hero-admin h1{
+    color:#e2c17c;
+    margin-bottom:8px;
 }
 
-.welcome p{
-    color:#d0c7b6;
+.hero-admin p{
+    color:#d0c7b8;
+    line-height:1.7;
 }
-
-/* STAT CARDS */
 
 .stats{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:18px;
-
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 
 .stat{
     background:#fffdf8;
-    border:1px solid #ddd4c4;
-
-    border-radius:8px;
-
+    border:1px solid #ddd4c5;
+    border-radius:9px;
     padding:23px;
 }
 
@@ -319,135 +273,136 @@ body{
 }
 
 .stat-number{
+    color:#98733d;
     font-size:32px;
     font-weight:bold;
-    color:#9b773f;
-
-    margin-top:8px;
+    margin-top:7px;
 }
 
-.stat-title{
+.stat-name{
     color:#777;
-    margin-top:5px;
+    margin-top:4px;
 }
 
-/* PANEL */
+/* ================= PANELS ================= */
 
 .panel{
     background:#fffdf8;
-
-    border:1px solid #ddd4c4;
-
-    border-radius:8px;
-
+    border:1px solid #ddd4c5;
+    border-radius:9px;
     padding:25px;
-
-    margin-bottom:25px;
+    margin-bottom:22px;
 }
 
 .panel h3{
     margin-bottom:20px;
 }
 
-/* GRID */
-
-.grid{
+.form-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:20px;
+    gap:18px;
 }
 
-/* ADD MATERIAL */
-
-.material-form{
-    max-width:850px;
+.full{
+    grid-column:1/-1;
 }
 
-.save-btn{
-    background:#9b773f;
-    color:white;
+.form-group{
+    margin-bottom:17px;
 }
 
-.cancel-btn{
-    background:#ddd5c6;
-    margin-left:8px;
+.form-group label{
+    display:block;
+    margin-bottom:7px;
+    font-size:14px;
 }
 
-/* LIST */
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #d2c8b8;
+    border-radius:5px;
+    background:#fff;
+    font-family:inherit;
+}
+
+.form-group textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn{
+    border:0;
+    border-radius:5px;
+    padding:11px 17px;
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:#9d783f;
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:#826235;
+}
+
+.btn-secondary{
+    background:#ddd5c7;
+}
+
+.btn-danger{
+    background:#efd8d4;
+    color:#8d312b;
+}
+
+.btn-edit{
+    background:#e8ddc9;
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+}
+
+/* ================= ITEMS ================= */
 
 .item{
-    border:1px solid #ddd4c4;
-    border-radius:7px;
-
-    padding:18px;
-
-    margin-bottom:12px;
-
     background:#fff;
+    border:1px solid #ddd4c5;
+    border-radius:7px;
+    padding:18px;
+    margin-bottom:12px;
 }
 
-.item-header{
+.item-top{
     display:flex;
     justify-content:space-between;
     gap:15px;
 }
 
 .item h4{
-    color:#40382e;
+    color:#3c352c;
 }
 
 .item-type{
-    color:#9a753e;
+    color:#9a753f;
     font-size:12px;
+    margin-top:4px;
 }
 
-.item-description{
-    color:#777;
-    margin-top:8px;
-    line-height:1.5;
+.item-text{
+    color:#6e695f;
+    line-height:1.65;
+    margin-top:10px;
 }
-
-.item-actions{
-    margin-top:15px;
-}
-
-.small-btn{
-    border:0;
-    padding:7px 11px;
-    border-radius:4px;
-    cursor:pointer;
-    font-family:inherit;
-}
-
-.edit-btn{
-    background:#e7dcc7;
-}
-
-.delete-btn{
-    background:#f0d8d5;
-    color:#8b302a;
-}
-
-/* TABLE */
-
-.admin-table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-.admin-table th,
-.admin-table td{
-    border:1px solid #ddd4c4;
-    padding:12px;
-    text-align:left;
-}
-
-.admin-table th{
-    background:#302c25;
-    color:#ead8af;
-}
-
-/* EMPTY */
 
 .empty{
     padding:35px;
@@ -455,79 +410,101 @@ body{
     color:#888;
 }
 
-/* TOAST */
+/* ================= QUICK ACTIONS ================= */
 
-.toast{
+.quick-actions{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.quick{
+    border:1px solid #ddd4c5;
+    background:#fff;
+    border-radius:7px;
+    padding:18px;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+.quick:hover{
+    border-color:#aa8750;
+    transform:translateY(-2px);
+}
+
+/* ================= TABLE ================= */
+
+.table-scroll{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid #ddd4c5;
+    padding:12px;
+    text-align:left;
+}
+
+th{
+    background:#302c26;
+    color:#e7d5ad;
+}
+
+/* ================= TOAST ================= */
+
+#toast{
     position:fixed;
-
     right:25px;
     bottom:25px;
 
-    background:#302c25;
+    background:#302c26;
     color:white;
 
-    padding:15px 20px;
+    padding:14px 20px;
 
     border-left:4px solid #d0ad68;
-
     border-radius:5px;
 
-    transform:translateY(100px);
     opacity:0;
+    transform:translateY(80px);
 
     transition:.3s;
 
     z-index:9999;
 }
 
-.toast.show{
-    transform:translateY(0);
+#toast.show{
     opacity:1;
+    transform:translateY(0);
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
-.mobile-menu{
-    display:none;
-}
-
-@media(max-width:900px){
-
-    .sidebar{
-        width:220px;
-    }
-
-    .main{
-        width:calc(100% - 220px);
-        margin-left:220px;
-    }
+@media(max-width:950px){
 
     .stats{
         grid-template-columns:1fr 1fr;
     }
 
+    .quick-actions{
+        grid-template-columns:1fr 1fr;
+    }
 }
 
-@media(max-width:650px){
-
-    .admin-app.active{
-        display:block;
-    }
+@media(max-width:700px){
 
     .sidebar{
         position:relative;
         width:100%;
-        min-height:auto;
+        height:auto;
     }
 
     .main{
-        width:100%;
         margin-left:0;
-    }
-
-    .stats,
-    .grid{
-        grid-template-columns:1fr;
     }
 
     .topbar{
@@ -538,76 +515,67 @@ body{
         padding:18px;
     }
 
-}
+    .stats,
+    .form-grid,
+    .quick-actions{
+        grid-template-columns:1fr;
+    }
 
+    .full{
+        grid-column:auto;
+    }
+}
 </style>
 </head>
 
 <body>
 
+<!-- ================================================= -->
+<!-- LOGIN -->
+<!-- ================================================= -->
 
-<!-- ===================================================== -->
-<!-- ADMIN LOGIN -->
-<!-- ===================================================== -->
-
-<div class="admin-login" id="adminLogin">
+<div id="loginScreen">
 
     <div class="login-box">
 
-        <div class="login-logo">
+        <div class="login-symbol">👑</div>
 
-            <h1>TS HISTORY</h1>
+        <h1>TS HISTORY</h1>
 
-            <p>
-                ADMINISTRATION PANEL
-            </p>
-
+        <div class="subtitle">
+            ADMINISTRATION
         </div>
 
-
-        <div class="form-group">
-
-            <label>
-                Admin Username
-            </label>
-
+        <div class="input-group">
+            <label>მომხმარებელი</label>
             <input
-                id="adminUsername"
+                id="username"
                 type="text"
                 placeholder="admin"
             >
-
         </div>
 
-
-        <div class="form-group">
-
-            <label>
-                Admin Password
-            </label>
-
+        <div class="input-group">
+            <label>პაროლი</label>
             <input
-                id="adminPassword"
+                id="password"
                 type="password"
-                placeholder="••••••••"
+                placeholder="პაროლი"
             >
-
         </div>
-
 
         <button
-            class="btn btn-gold"
-            onclick="adminLogin()"
+            class="login-button"
+            onclick="login()"
         >
-            🔐 შესვლა Admin Panel-ში
+            🔐 Admin Panel-ში შესვლა
         </button>
-
 
         <div
             class="login-error"
             id="loginError"
         >
-            არასწორი Admin მონაცემებია.
+            მომხმარებელი ან პაროლი არასწორია.
         </div>
 
     </div>
@@ -615,97 +583,98 @@ body{
 </div>
 
 
-<!-- ===================================================== -->
-<!-- ADMIN APPLICATION -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
+<!-- ADMIN APP -->
+<!-- ================================================= -->
 
-<div class="admin-app" id="adminApp">
-
+<div id="adminApp">
 
     <!-- SIDEBAR -->
 
     <aside class="sidebar">
 
-        <div class="brand">
-
-            <h1>
-                TS HISTORY
-            </h1>
-
-            <p>
-                ADMIN PANEL
-            </p>
-
+        <div class="logo">
+            <h1>TS HISTORY</h1>
+            <p>ADMIN PANEL</p>
         </div>
 
-
-        <div class="menu-title">
-            მთავარი
+        <div class="menu-label">
+            მართვა
         </div>
-
 
         <button
-            class="active"
-            onclick="showPage('dashboard', this)"
+            class="menu-btn active"
+            onclick="openPage('dashboard',this)"
         >
             🏠 Dashboard
         </button>
 
-
-        <div class="menu-title">
-            კონტენტის მართვა
-        </div>
-
-
         <button
-            onclick="showPage('materials', this)"
+            class="menu-btn"
+            onclick="openPage('materials',this)"
         >
             📚 სასწავლო მასალები
         </button>
 
+        <button
+            class="menu-btn"
+            onclick="openPage('notes',this)"
+        >
+            📝 კონსპექტები
+        </button>
 
         <button
-            onclick="showPage('sources', this)"
+            class="menu-btn"
+            onclick="openPage('sources',this)"
         >
             📜 ისტორიული წყაროები
         </button>
 
-
         <button
-            onclick="showPage('timeline', this)"
+            class="menu-btn"
+            onclick="openPage('timeline',this)"
         >
             🕰️ ქრონოლოგია
         </button>
 
-
         <button
-            onclick="showPage('schedule', this)"
+            class="menu-btn"
+            onclick="openPage('schedule',this)"
         >
             📅 სასწავლო ცხრილი
         </button>
 
-
-        <div class="menu-title">
-            სისტემა
+        <div class="menu-label">
+            პლატფორმა
         </div>
 
+        <button
+            class="menu-btn"
+            onclick="openPage('announcements',this)"
+        >
+            📢 განცხადებები
+        </button>
 
         <button
-            onclick="showPage('students', this)"
+            class="menu-btn"
+            onclick="openPage('students',this)"
         >
             👨‍🎓 სტუდენტები
         </button>
 
-
         <button
+            class="menu-btn"
             onclick="openSite()"
         >
             🌐 საიტის ნახვა
         </button>
 
+        <div class="menu-label">
+            ანგარიში
+        </div>
 
         <button
-            class="logout"
+            class="menu-btn logout"
             onclick="logout()"
         >
             🚪 გამოსვლა
@@ -718,16 +687,13 @@ body{
 
     <main class="main">
 
-
-        <!-- TOPBAR -->
-
         <div class="topbar">
 
             <h2 id="pageTitle">
                 Dashboard
             </h2>
 
-            <div class="admin-badge">
+            <div class="admin-tag">
                 👑 Administrator
             </div>
 
@@ -736,25 +702,26 @@ body{
 
         <div class="content">
 
-
-            <!-- ================================================= -->
+            <!-- ======================================= -->
             <!-- DASHBOARD -->
-            <!-- ================================================= -->
+            <!-- ======================================= -->
 
             <section
                 class="page active"
-                id="page-dashboard"
+                id="dashboard"
             >
 
-                <div class="welcome">
+                <div class="hero-admin">
 
                     <h1>
                         მოგესალმები, Admin 👑
                     </h1>
 
                     <p>
-                        აქედან შეგიძლია მართო TS History-ის
-                        სასწავლო პლატფორმა.
+                        TS History-ის მართვის ცენტრი.
+                        აქედან შეგიძლია მართო სასწავლო
+                        მასალა, კონსპექტები, წყაროები,
+                        ქრონოლოგია და სხვა კონტენტი.
                     </p>
 
                 </div>
@@ -763,81 +730,47 @@ body{
                 <div class="stats">
 
                     <div class="stat">
-
-                        <div class="stat-icon">
-                            📚
-                        </div>
-
+                        <div class="stat-icon">📚</div>
                         <div
                             class="stat-number"
                             id="materialCount"
-                        >
-                            0
-                        </div>
-
-                        <div class="stat-title">
+                        >0</div>
+                        <div class="stat-name">
                             სასწავლო მასალა
                         </div>
-
                     </div>
 
+                    <div class="stat">
+                        <div class="stat-icon">📝</div>
+                        <div
+                            class="stat-number"
+                            id="noteCount"
+                        >0</div>
+                        <div class="stat-name">
+                            კონსპექტი
+                        </div>
+                    </div>
 
                     <div class="stat">
-
-                        <div class="stat-icon">
-                            📜
-                        </div>
-
+                        <div class="stat-icon">📜</div>
                         <div
                             class="stat-number"
                             id="sourceCount"
-                        >
-                            0
+                        >0</div>
+                        <div class="stat-name">
+                            წყარო
                         </div>
-
-                        <div class="stat-title">
-                            ისტორიული წყარო
-                        </div>
-
                     </div>
 
-
                     <div class="stat">
-
-                        <div class="stat-icon">
-                            🕰️
-                        </div>
-
+                        <div class="stat-icon">🕰️</div>
                         <div
                             class="stat-number"
                             id="timelineCount"
-                        >
-                            0
-                        </div>
-
-                        <div class="stat-title">
+                        >0</div>
+                        <div class="stat-name">
                             ქრონოლოგიური მოვლენა
                         </div>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <div class="stat-icon">
-                            👨‍🎓
-                        </div>
-
-                        <div
-                            class="stat-number"
-                        >
-                            0
-                        </div>
-
-                        <div class="stat-title">
-                            სტუდენტი
-                        </div>
-
                     </div>
 
                 </div>
@@ -849,143 +782,130 @@ body{
                         ⚡ სწრაფი მოქმედებები
                     </h3>
 
-                    <button
-                        class="btn save-btn"
-                        onclick="showPageById('materials')"
-                    >
-                        + მასალის დამატება
-                    </button>
-
-                    <button
-                        class="btn cancel-btn"
-                        onclick="showPageById('sources')"
-                    >
-                        + წყაროს დამატება
-                    </button>
-
-                    <button
-                        class="btn cancel-btn"
-                        onclick="showPageById('timeline')"
-                    >
-                        + მოვლენის დამატება
-                    </button>
-
-                </div>
-
-            </section>
-
-
-            <!-- ================================================= -->
-            <!-- MATERIALS -->
-            <!-- ================================================= -->
-
-            <section
-                class="page"
-                id="page-materials"
-            >
-
-                <div class="panel">
-
-                    <h3>
-                        📚 ახალი სასწავლო მასალა
-                    </h3>
-
-
-                    <div class="material-form">
-
-                        <div class="form-group">
-
-                            <label>
-                                მასალის სათაური
-                            </label>
-
-                            <input
-                                id="materialTitle"
-                                type="text"
-                                placeholder="მაგ: დავით აღმაშენებელი"
-                            >
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
-                                კატეგორია
-                            </label>
-
-                            <select id="materialCategory">
-
-                                <option value="საქართველოს ისტორია">
-                                    საქართველოს ისტორია
-                                </option>
-
-                                <option value="მსოფლიო ისტორია">
-                                    მსოფლიო ისტორია
-                                </option>
-
-                                <option value="კონსპექტი">
-                                    კონსპექტი
-                                </option>
-
-                                <option value="ომები და ბრძოლები">
-                                    ომები და ბრძოლები
-                                </option>
-
-                                <option value="ისტორიული პიროვნება">
-                                    ისტორიული პიროვნება
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
-                                აღწერა
-                            </label>
-
-                            <textarea
-                                id="materialDescription"
-                                placeholder="მოკლე აღწერა..."
-                            ></textarea>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
-                                PDF / ფაილის ბმული
-                            </label>
-
-                            <input
-                                id="materialFile"
-                                type="text"
-                                placeholder="https://..."
-                            >
-
-                        </div>
-
+                    <div class="quick-actions">
 
                         <button
-                            class="btn save-btn"
-                            onclick="addMaterial()"
+                            class="quick"
+                            onclick="openPageByName('materials')"
                         >
-                            💾 მასალის დამატება
+                            📚<br><br>
+                            მასალის დამატება
+                        </button>
+
+                        <button
+                            class="quick"
+                            onclick="openPageByName('notes')"
+                        >
+                            📝<br><br>
+                            კონსპექტის დამატება
+                        </button>
+
+                        <button
+                            class="quick"
+                            onclick="openPageByName('sources')"
+                        >
+                            📜<br><br>
+                            წყაროს დამატება
+                        </button>
+
+                        <button
+                            class="quick"
+                            onclick="openPageByName('timeline')"
+                        >
+                            🕰️<br><br>
+                            მოვლენის დამატება
                         </button>
 
                     </div>
 
                 </div>
 
+            </section>
+
+
+            <!-- ======================================= -->
+            <!-- MATERIALS -->
+            <!-- ======================================= -->
+
+            <section
+                class="page"
+                id="materials"
+            >
 
                 <div class="panel">
 
                     <h3>
-                        დამატებული მასალები
+                        📚 სასწავლო მასალის დამატება
+                    </h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>სათაური</label>
+                            <input
+                                id="materialTitle"
+                                placeholder="მაგ: დავით აღმაშენებელი"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>კატეგორია</label>
+
+                            <select id="materialCategory">
+
+                                <option>
+                                    საქართველოს ისტორია
+                                </option>
+
+                                <option>
+                                    მსოფლიო ისტორია
+                                </option>
+
+                                <option>
+                                    ისტორიული პიროვნება
+                                </option>
+
+                                <option>
+                                    ომი და ბრძოლა
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group full">
+                            <label>აღწერა</label>
+
+                            <textarea
+                                id="materialDescription"
+                                placeholder="მასალის მოკლე აღწერა..."
+                            ></textarea>
+                        </div>
+
+                        <div class="form-group full">
+                            <label>ფაილის ბმული</label>
+
+                            <input
+                                id="materialFile"
+                                placeholder="PDF-ის ან ფაილის URL"
+                            >
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="addMaterial()"
+                    >
+                        💾 შენახვა
+                    </button>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h3>
+                        არსებული მასალები
                     </h3>
 
                     <div id="materialsList"></div>
@@ -995,85 +915,44 @@ body{
             </section>
 
 
-            <!-- ================================================= -->
-            <!-- SOURCES -->
-            <!-- ================================================= -->
+            <!-- ======================================= -->
+            <!-- NOTES -->
+            <!-- ======================================= -->
 
             <section
                 class="page"
-                id="page-sources"
+                id="notes"
             >
 
                 <div class="panel">
 
                     <h3>
-                        📜 ახალი ისტორიული წყარო
+                        📝 კონსპექტის დამატება
                     </h3>
 
-
                     <div class="form-group">
-
-                        <label>
-                            წყაროს სათაური
-                        </label>
+                        <label>კონსპექტის სათაური</label>
 
                         <input
-                            id="sourceTitle"
-                            type="text"
-                            placeholder="მაგ: ქართლის ცხოვრება"
+                            id="noteTitle"
+                            placeholder="მაგ: საქართველოს ისტორია — XI საუკუნე"
                         >
-
                     </div>
 
-
                     <div class="form-group">
-
-                        <label>
-                            წყაროს ტიპი
-                        </label>
-
-                        <select id="sourceType">
-
-                            <option>
-                                წერილობითი წყარო
-                            </option>
-
-                            <option>
-                                არქეოლოგიური წყარო
-                            </option>
-
-                            <option>
-                                უცხოური წყარო
-                            </option>
-
-                            <option>
-                                დოკუმენტი
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label>
-                            აღწერა
-                        </label>
+                        <label>კონსპექტი</label>
 
                         <textarea
-                            id="sourceDescription"
-                            placeholder="წყაროს აღწერა..."
+                            id="noteText"
+                            placeholder="ჩაწერე სასწავლო კონსპექტი..."
                         ></textarea>
-
                     </div>
 
-
                     <button
-                        class="btn save-btn"
-                        onclick="addSource()"
+                        class="btn btn-primary"
+                        onclick="addNote()"
                     >
-                        💾 წყაროს დამატება
+                        💾 კონსპექტის შენახვა
                     </button>
 
                 </div>
@@ -1082,7 +961,93 @@ body{
                 <div class="panel">
 
                     <h3>
-                        დამატებული წყაროები
+                        არსებული კონსპექტები
+                    </h3>
+
+                    <div id="notesList"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ======================================= -->
+            <!-- SOURCES -->
+            <!-- ======================================= -->
+
+            <section
+                class="page"
+                id="sources"
+            >
+
+                <div class="panel">
+
+                    <h3>
+                        📜 ისტორიული წყაროს დამატება
+                    </h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>სათაური</label>
+
+                            <input
+                                id="sourceTitle"
+                                placeholder="მაგ: ქართლის ცხოვრება"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>ტიპი</label>
+
+                            <select id="sourceType">
+
+                                <option>
+                                    წერილობითი წყარო
+                                </option>
+
+                                <option>
+                                    არქეოლოგიური წყარო
+                                </option>
+
+                                <option>
+                                    უცხოური წყარო
+                                </option>
+
+                                <option>
+                                    დოკუმენტი
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group full">
+
+                            <label>აღწერა</label>
+
+                            <textarea
+                                id="sourceDescription"
+                                placeholder="წყაროს აღწერა..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="addSource()"
+                    >
+                        💾 წყაროს შენახვა
+                    </button>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h3>
+                        არსებული წყაროები
                     </h3>
 
                     <div id="sourcesList"></div>
@@ -1092,71 +1057,53 @@ body{
             </section>
 
 
-            <!-- ================================================= -->
+            <!-- ======================================= -->
             <!-- TIMELINE -->
-            <!-- ================================================= -->
+            <!-- ======================================= -->
 
             <section
                 class="page"
-                id="page-timeline"
+                id="timeline"
             >
 
                 <div class="panel">
 
                     <h3>
-                        🕰️ ახალი ისტორიული მოვლენა
+                        🕰️ ქრონოლოგიური მოვლენის დამატება
                     </h3>
 
-
                     <div class="form-group">
-
-                        <label>
-                            თარიღი / პერიოდი
-                        </label>
+                        <label>თარიღი / პერიოდი</label>
 
                         <input
                             id="eventDate"
-                            type="text"
-                            placeholder="მაგ: XI საუკუნე"
+                            placeholder="მაგ: 1121 წელი"
                         >
-
                     </div>
 
-
                     <div class="form-group">
-
-                        <label>
-                            მოვლენის სათაური
-                        </label>
+                        <label>მოვლენის სათაური</label>
 
                         <input
                             id="eventTitle"
-                            type="text"
                             placeholder="მაგ: დიდგორის ბრძოლა"
                         >
-
                     </div>
 
-
                     <div class="form-group">
-
-                        <label>
-                            აღწერა
-                        </label>
+                        <label>აღწერა</label>
 
                         <textarea
                             id="eventDescription"
                             placeholder="მოვლენის აღწერა..."
                         ></textarea>
-
                     </div>
 
-
                     <button
-                        class="btn save-btn"
-                        onclick="addTimelineEvent()"
+                        class="btn btn-primary"
+                        onclick="addEvent()"
                     >
-                        💾 მოვლენის დამატება
+                        💾 მოვლენის შენახვა
                     </button>
 
                 </div>
@@ -1165,7 +1112,7 @@ body{
                 <div class="panel">
 
                     <h3>
-                        ქრონოლოგიის მოვლენები
+                        ქრონოლოგია
                     </h3>
 
                     <div id="timelineList"></div>
@@ -1175,29 +1122,25 @@ body{
             </section>
 
 
-            <!-- ================================================= -->
+            <!-- ======================================= -->
             <!-- SCHEDULE -->
-            <!-- ================================================= -->
+            <!-- ======================================= -->
 
             <section
                 class="page"
-                id="page-schedule"
+                id="schedule"
             >
 
                 <div class="panel">
 
                     <h3>
-                        📅 სასწავლო ცხრილის დამატება
+                        📅 ცხრილის ჩანაწერის დამატება
                     </h3>
 
-
-                    <div class="grid">
+                    <div class="form-grid">
 
                         <div class="form-group">
-
-                            <label>
-                                დღე
-                            </label>
+                            <label>დღე</label>
 
                             <select id="scheduleDay">
 
@@ -1207,61 +1150,41 @@ body{
                                 <option>ხუთშაბათი</option>
                                 <option>პარასკევი</option>
                                 <option>შაბათი</option>
-                                <option>კვირა</option>
 
                             </select>
-
                         </div>
 
-
                         <div class="form-group">
-
-                            <label>
-                                დრო
-                            </label>
+                            <label>დრო</label>
 
                             <input
                                 id="scheduleTime"
                                 type="time"
                             >
+                        </div>
 
+                        <div class="form-group">
+                            <label>საგანი</label>
+
+                            <input
+                                id="scheduleSubject"
+                                placeholder="საქართველოს ისტორია"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>თემა</label>
+
+                            <input
+                                id="scheduleTopic"
+                                placeholder="შუა საუკუნეები"
+                            >
                         </div>
 
                     </div>
 
-
-                    <div class="form-group">
-
-                        <label>
-                            საგანი
-                        </label>
-
-                        <input
-                            id="scheduleSubject"
-                            type="text"
-                            placeholder="მაგ: საქართველოს ისტორია"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label>
-                            თემა
-                        </label>
-
-                        <input
-                            id="scheduleTopic"
-                            type="text"
-                            placeholder="მაგ: ერთიანი საქართველო"
-                        >
-
-                    </div>
-
-
                     <button
-                        class="btn save-btn"
+                        class="btn btn-primary"
                         onclick="addSchedule()"
                     >
                         💾 ცხრილში დამატება
@@ -1283,13 +1206,77 @@ body{
             </section>
 
 
-            <!-- ================================================= -->
-            <!-- STUDENTS -->
-            <!-- ================================================= -->
+            <!-- ======================================= -->
+            <!-- ANNOUNCEMENTS -->
+            <!-- ======================================= -->
 
             <section
                 class="page"
-                id="page-students"
+                id="announcements"
+            >
+
+                <div class="panel">
+
+                    <h3>
+                        📢 ახალი განცხადება
+                    </h3>
+
+                    <div class="form-group">
+
+                        <label>
+                            სათაური
+                        </label>
+
+                        <input
+                            id="announcementTitle"
+                            placeholder="მაგ: ახალი სასწავლო მასალა"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            ტექსტი
+                        </label>
+
+                        <textarea
+                            id="announcementText"
+                            placeholder="განცხადების ტექსტი..."
+                        ></textarea>
+
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        onclick="addAnnouncement()"
+                    >
+                        📢 განცხადების გამოქვეყნება
+                    </button>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h3>
+                        განცხადებები
+                    </h3>
+
+                    <div id="announcementsList"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ======================================= -->
+            <!-- STUDENTS -->
+            <!-- ======================================= -->
+
+            <section
+                class="page"
+                id="students"
             >
 
                 <div class="panel">
@@ -1300,9 +1287,9 @@ body{
 
                     <div class="empty">
 
-                        სტუდენტების რეალური სია გამოჩნდება
-                        მას შემდეგ, რაც Authentication-ს
-                        Database-ს დავუკავშირებთ.
+                        სტუდენტების რეალური მონაცემები
+                        გამოჩნდება Authentication-ისა და
+                        Database-ის დაკავშირების შემდეგ.
 
                     </div>
 
@@ -1317,65 +1304,30 @@ body{
 </div>
 
 
-<!-- TOAST -->
-
-<div
-    class="toast"
-    id="toast"
-></div>
+<div id="toast"></div>
 
 
 <script>
 
-/*
-=========================================================
-TS HISTORY ADMIN PANEL
-=========================================================
-
-IMPORTANT:
-
-ეს არის Admin Panel-ის პირველი სამუშაო ვერსია.
-
-ამ ეტაპზე მონაცემები ინახება browser-ის
-localStorage-ში.
-
-შემდეგ ეტაპზე localStorage-ს ჩავანაცვლებთ
-Supabase Database-ით.
-
-=========================================================
-*/
-
-
-/* ======================================================
-   ADMIN LOGIN
-====================================================== */
-
-/*
-   დროებითი Admin მონაცემები.
-
-   შემდეგ Supabase Authentication-ში
-   გადავიტანთ და პაროლი კოდში აღარ იქნება.
-*/
+/* =====================================================
+   CONFIG
+===================================================== */
 
 const ADMIN_USERNAME = "admin";
-
 const ADMIN_PASSWORD = "TSHistory2026";
 
 
-function adminLogin(){
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function login(){
 
     const username =
-        document
-        .getElementById("adminUsername")
-        .value
-        .trim();
+        document.getElementById("username").value.trim();
 
     const password =
-        document
-        .getElementById("adminPassword")
-        .value
-        .trim();
-
+        document.getElementById("password").value.trim();
 
     if(
         username === ADMIN_USERNAME &&
@@ -1383,69 +1335,54 @@ function adminLogin(){
     ){
 
         sessionStorage.setItem(
-            "tsHistoryAdmin",
+            "ts_admin_logged",
             "true"
         );
 
-        document
-        .getElementById("adminLogin")
-        .style.display = "none";
-
-        document
-        .getElementById("adminApp")
-        .classList.add("active");
-
-        loadAll();
+        showAdmin();
 
     }else{
 
         document
-        .getElementById("loginError")
-        .style.display = "block";
+            .getElementById("loginError")
+            .style.display = "block";
 
     }
+}
+
+
+function showAdmin(){
+
+    document
+        .getElementById("loginScreen")
+        .style.display = "none";
+
+    document
+        .getElementById("adminApp")
+        .classList.add("active");
+
+    loadAll();
 
 }
 
 
-/* ======================================================
-   CHECK LOGIN
-====================================================== */
+if(
+    sessionStorage.getItem("ts_admin_logged") === "true"
+){
 
-window.addEventListener(
-    "DOMContentLoaded",
-    function(){
+    showAdmin();
 
-        if(
-            sessionStorage.getItem(
-                "tsHistoryAdmin"
-            ) === "true"
-        ){
-
-            document
-            .getElementById("adminLogin")
-            .style.display = "none";
-
-            document
-            .getElementById("adminApp")
-            .classList.add("active");
-
-            loadAll();
-
-        }
-
-    }
-);
+}
 
 
-/* ======================================================
+/* =====================================================
    LOGOUT
-====================================================== */
+===================================================== */
 
 function logout(){
 
     sessionStorage.removeItem(
-        "tsHistoryAdmin"
+        "ts_admin_logged"
     );
 
     location.reload();
@@ -1453,126 +1390,95 @@ function logout(){
 }
 
 
-/* ======================================================
-   PAGE NAVIGATION
-====================================================== */
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
-function showPage(
-    page,
-    button
-){
+function openPage(name,button){
 
     document
-    .querySelectorAll(".page")
-    .forEach(function(item){
+        .querySelectorAll(".page")
+        .forEach(page=>{
+            page.classList.remove("active");
+        });
 
-        item.classList.remove("active");
+    const page =
+        document.getElementById(name);
 
-    });
-
-
-    const target =
-        document.getElementById(
-            "page-" + page
-        );
-
-
-    if(target){
-
-        target.classList.add("active");
-
+    if(page){
+        page.classList.add("active");
     }
 
 
     document
-    .querySelectorAll(".sidebar button")
-    .forEach(function(item){
-
-        item.classList.remove("active");
-
-    });
-
+        .querySelectorAll(".menu-btn")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
 
     if(button){
-
         button.classList.add("active");
-
     }
 
 
     const titles = {
 
         dashboard:"Dashboard",
-
         materials:"სასწავლო მასალები",
-
+        notes:"კონსპექტები",
         sources:"ისტორიული წყაროები",
-
         timeline:"ქრონოლოგია",
-
         schedule:"სასწავლო ცხრილი",
-
+        announcements:"განცხადებები",
         students:"სტუდენტები"
 
     };
 
 
-    document
-    .getElementById("pageTitle")
-    .textContent =
-        titles[page] || "TS History";
+    document.getElementById("pageTitle")
+        .textContent =
+        titles[name] || "TS History";
 
 }
 
 
-function showPageById(page){
+function openPageByName(name){
 
     const buttons =
-        document.querySelectorAll(
-            ".sidebar button"
-        );
+        document.querySelectorAll(".menu-btn");
 
-    let targetButton = null;
+    let button = null;
 
-    buttons.forEach(function(button){
+    buttons.forEach(btn=>{
 
-        if(
-            button
-            .getAttribute("onclick")
-            ?.includes("'" + page + "'")
-        ){
+        const click =
+            btn.getAttribute("onclick") || "";
 
-            targetButton = button;
-
+        if(click.includes("'" + name + "'")){
+            button = btn;
         }
 
     });
 
-    showPage(
-        page,
-        targetButton
-    );
+    openPage(name,button);
 
 }
 
 
-/* ======================================================
-   OPEN WEBSITE
-====================================================== */
+/* =====================================================
+   SITE
+===================================================== */
 
 function openSite(){
 
-    window.open(
-        "index.html",
-        "_blank"
-    );
+    window.open("index.html","_blank");
 
 }
 
 
-/* ======================================================
-   LOCAL STORAGE HELPERS
-====================================================== */
+/* =====================================================
+   DATABASE LOCAL STORAGE
+===================================================== */
 
 function getData(key){
 
@@ -1583,10 +1489,7 @@ function getData(key){
 }
 
 
-function saveData(
-    key,
-    data
-){
+function saveData(key,data){
 
     localStorage.setItem(
         key,
@@ -1596,95 +1499,66 @@ function saveData(
 }
 
 
-/* ======================================================
+/* =====================================================
    MATERIALS
-====================================================== */
+===================================================== */
 
 function addMaterial(){
 
     const title =
-        document
-        .getElementById("materialTitle")
-        .value
-        .trim();
+        document.getElementById("materialTitle")
+        .value.trim();
 
     const category =
-        document
-        .getElementById("materialCategory")
+        document.getElementById("materialCategory")
         .value;
 
     const description =
-        document
-        .getElementById("materialDescription")
-        .value
-        .trim();
+        document.getElementById("materialDescription")
+        .value.trim();
 
     const file =
-        document
-        .getElementById("materialFile")
-        .value
-        .trim();
+        document.getElementById("materialFile")
+        .value.trim();
 
 
     if(!title){
 
-        notify(
-            "გთხოვ შეიყვანე მასალის სათაური."
-        );
+        notify("შეიყვანე მასალის სათაური.");
 
         return;
 
     }
 
 
-    const materials =
+    const data =
         getData("ts_materials");
 
 
-    materials.push({
+    data.push({
 
         id:Date.now(),
-
-        title:title,
-
-        category:category,
-
-        description:description,
-
-        file:file,
-
-        date:new Date()
-        .toLocaleDateString("ka-GE")
+        title,
+        category,
+        description,
+        file,
+        createdAt:new Date().toLocaleString("ka-GE")
 
     });
 
 
-    saveData(
-        "ts_materials",
-        materials
-    );
+    saveData("ts_materials",data);
 
 
-    document
-    .getElementById("materialTitle")
-    .value = "";
-
-    document
-    .getElementById("materialDescription")
-    .value = "";
-
-    document
-    .getElementById("materialFile")
-    .value = "";
+    document.getElementById("materialTitle").value="";
+    document.getElementById("materialDescription").value="";
+    document.getElementById("materialFile").value="";
 
 
     renderMaterials();
-
     updateStats();
 
-    notify(
-        "სასწავლო მასალა დაემატა."
-    );
+    notify("სასწავლო მასალა დაემატა.");
 
 }
 
@@ -1694,79 +1568,67 @@ function renderMaterials(){
     const data =
         getData("ts_materials");
 
-    const container =
-        document
-        .getElementById("materialsList");
+    const box =
+        document.getElementById("materialsList");
 
 
-    if(data.length === 0){
+    if(!data.length){
 
-        container.innerHTML =
-        `<div class="empty">
-            მასალა ჯერ არ დამატებულა.
-        </div>`;
+        box.innerHTML =
+            `<div class="empty">
+                მასალა ჯერ არ დამატებულა.
+            </div>`;
 
         return;
 
     }
 
 
-    container.innerHTML =
-        data.map(function(item){
-
-            return `
+    box.innerHTML =
+        data.map(item=>`
 
             <div class="item">
 
-                <div class="item-header">
+                <div class="item-top">
 
                     <div>
 
                         <h4>
-                            ${escapeHTML(item.title)}
+                            ${safe(item.title)}
                         </h4>
 
                         <div class="item-type">
-                            ${escapeHTML(item.category)}
+                            ${safe(item.category)}
                         </div>
 
                     </div>
 
                 </div>
 
-
-                <div class="item-description">
-
-                    ${escapeHTML(
-                        item.description ||
-                        "აღწერა არ არის დამატებული."
-                    )}
-
+                <div class="item-text">
+                    ${safe(item.description)}
                 </div>
-
 
                 ${
                     item.file
                     ?
-                    `<p style="margin-top:10px">
+                    `<div style="margin-top:10px">
                         📄
                         <a
-                            href="${escapeAttribute(item.file)}"
+                            href="${safeAttr(item.file)}"
                             target="_blank"
                         >
                             ფაილის გახსნა
                         </a>
-                    </p>`
-                    :
-                    ""
+                    </div>`
+                    :""
                 }
 
-
-                <div class="item-actions">
+                <div class="actions">
 
                     <button
-                        class="small-btn delete-btn"
-                        onclick="deleteMaterial(${item.id})"
+                        class="btn btn-danger"
+                        onclick="deleteItem('ts_materials',${item.id},renderMaterials)"
                     >
                         🗑️ წაშლა
                     </button>
@@ -1775,71 +1637,138 @@ function renderMaterials(){
 
             </div>
 
-            `;
-
-        })
-        .join("");
+        `).join("");
 
 }
 
 
-function deleteMaterial(id){
+/* =====================================================
+   NOTES
+===================================================== */
+
+function addNote(){
+
+    const title =
+        document.getElementById("noteTitle")
+        .value.trim();
+
+    const text =
+        document.getElementById("noteText")
+        .value.trim();
+
+
+    if(!title || !text){
+
+        notify("შეავსე სათაური და კონსპექტი.");
+
+        return;
+
+    }
+
 
     const data =
-        getData("ts_materials")
-        .filter(function(item){
-
-            return item.id !== id;
-
-        });
+        getData("ts_notes");
 
 
-    saveData(
-        "ts_materials",
-        data
-    );
+    data.push({
+
+        id:Date.now(),
+        title,
+        text,
+        createdAt:new Date().toLocaleString("ka-GE")
+
+    });
 
 
-    renderMaterials();
+    saveData("ts_notes",data);
 
+
+    document.getElementById("noteTitle").value="";
+    document.getElementById("noteText").value="";
+
+
+    renderNotes();
     updateStats();
 
-    notify(
-        "მასალა წაიშალა."
-    );
+    notify("კონსპექტი დაემატა.");
 
 }
 
 
-/* ======================================================
+function renderNotes(){
+
+    const data =
+        getData("ts_notes");
+
+    const box =
+        document.getElementById("notesList");
+
+
+    if(!data.length){
+
+        box.innerHTML =
+            `<div class="empty">
+                კონსპექტი ჯერ არ დამატებულა.
+            </div>`;
+
+        return;
+
+    }
+
+
+    box.innerHTML =
+        data.map(item=>`
+
+            <div class="item">
+
+                <h4>
+                    ${safe(item.title)}
+                </h4>
+
+                <div class="item-text">
+                    ${safe(item.text)}
+                </div>
+
+                <div class="actions">
+
+                    <button
+                        class="btn btn-danger"
+                        onclick="deleteItem('ts_notes',${item.id},renderNotes)"
+                    >
+                        🗑️ წაშლა
+                    </button>
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =====================================================
    SOURCES
-====================================================== */
+===================================================== */
 
 function addSource(){
 
     const title =
-        document
-        .getElementById("sourceTitle")
-        .value
-        .trim();
+        document.getElementById("sourceTitle")
+        .value.trim();
 
     const type =
-        document
-        .getElementById("sourceType")
+        document.getElementById("sourceType")
         .value;
 
     const description =
-        document
-        .getElementById("sourceDescription")
-        .value
-        .trim();
+        document.getElementById("sourceDescription")
+        .value.trim();
 
 
     if(!title){
 
-        notify(
-            "გთხოვ შეიყვანე წყაროს სათაური."
-        );
+        notify("შეიყვანე წყაროს სათაური.");
 
         return;
 
@@ -1853,38 +1782,24 @@ function addSource(){
     data.push({
 
         id:Date.now(),
-
-        title:title,
-
-        type:type,
-
-        description:description
+        title,
+        type,
+        description
 
     });
 
 
-    saveData(
-        "ts_sources",
-        data
-    );
+    saveData("ts_sources",data);
 
 
-    document
-    .getElementById("sourceTitle")
-    .value = "";
-
-    document
-    .getElementById("sourceDescription")
-    .value = "";
+    document.getElementById("sourceTitle").value="";
+    document.getElementById("sourceDescription").value="";
 
 
     renderSources();
-
     updateStats();
 
-    notify(
-        "ისტორიული წყარო დაემატა."
-    );
+    notify("ისტორიული წყარო დაემატა.");
 
 }
 
@@ -1894,47 +1809,44 @@ function renderSources(){
     const data =
         getData("ts_sources");
 
-    const container =
-        document
-        .getElementById("sourcesList");
+    const box =
+        document.getElementById("sourcesList");
 
 
-    if(data.length === 0){
+    if(!data.length){
 
-        container.innerHTML =
-        `<div class="empty">
-            წყარო ჯერ არ დამატებულა.
-        </div>`;
+        box.innerHTML =
+            `<div class="empty">
+                წყარო ჯერ არ დამატებულა.
+            </div>`;
 
         return;
 
     }
 
 
-    container.innerHTML =
-        data.map(function(item){
-
-            return `
+    box.innerHTML =
+        data.map(item=>`
 
             <div class="item">
 
                 <h4>
-                    ${escapeHTML(item.title)}
+                    ${safe(item.title)}
                 </h4>
 
                 <div class="item-type">
-                    ${escapeHTML(item.type)}
+                    ${safe(item.type)}
                 </div>
 
-                <div class="item-description">
-                    ${escapeHTML(item.description)}
+                <div class="item-text">
+                    ${safe(item.description)}
                 </div>
 
-                <div class="item-actions">
+                <div class="actions">
 
                     <button
-                        class="small-btn delete-btn"
-                        onclick="deleteSource(${item.id})"
+                        class="btn btn-danger"
+                        onclick="deleteItem('ts_sources',${item.id},renderSources)"
                     >
                         🗑️ წაშლა
                     </button>
@@ -1943,72 +1855,33 @@ function renderSources(){
 
             </div>
 
-            `;
-
-        })
-        .join("");
+        `).join("");
 
 }
 
 
-function deleteSource(id){
-
-    const data =
-        getData("ts_sources")
-        .filter(function(item){
-
-            return item.id !== id;
-
-        });
-
-
-    saveData(
-        "ts_sources",
-        data
-    );
-
-
-    renderSources();
-
-    updateStats();
-
-    notify(
-        "წყარო წაიშალა."
-    );
-
-}
-
-
-/* ======================================================
+/* =====================================================
    TIMELINE
-====================================================== */
+===================================================== */
 
-function addTimelineEvent(){
+function addEvent(){
 
     const date =
-        document
-        .getElementById("eventDate")
-        .value
-        .trim();
+        document.getElementById("eventDate")
+        .value.trim();
 
     const title =
-        document
-        .getElementById("eventTitle")
-        .value
-        .trim();
+        document.getElementById("eventTitle")
+        .value.trim();
 
     const description =
-        document
-        .getElementById("eventDescription")
-        .value
-        .trim();
+        document.getElementById("eventDescription")
+        .value.trim();
 
 
     if(!date || !title){
 
-        notify(
-            "შეავსე თარიღი და სათაური."
-        );
+        notify("შეავსე თარიღი და სათაური.");
 
         return;
 
@@ -2022,42 +1895,25 @@ function addTimelineEvent(){
     data.push({
 
         id:Date.now(),
-
-        date:date,
-
-        title:title,
-
-        description:description
+        date,
+        title,
+        description
 
     });
 
 
-    saveData(
-        "ts_timeline",
-        data
-    );
+    saveData("ts_timeline",data);
 
 
-    document
-    .getElementById("eventDate")
-    .value = "";
-
-    document
-    .getElementById("eventTitle")
-    .value = "";
-
-    document
-    .getElementById("eventDescription")
-    .value = "";
+    document.getElementById("eventDate").value="";
+    document.getElementById("eventTitle").value="";
+    document.getElementById("eventDescription").value="";
 
 
     renderTimeline();
-
     updateStats();
 
-    notify(
-        "ქრონოლოგიური მოვლენა დაემატა."
-    );
+    notify("ქრონოლოგიური მოვლენა დაემატა.");
 
 }
 
@@ -2067,47 +1923,44 @@ function renderTimeline(){
     const data =
         getData("ts_timeline");
 
-    const container =
-        document
-        .getElementById("timelineList");
+    const box =
+        document.getElementById("timelineList");
 
 
-    if(data.length === 0){
+    if(!data.length){
 
-        container.innerHTML =
-        `<div class="empty">
-            მოვლენა ჯერ არ დამატებულა.
-        </div>`;
+        box.innerHTML =
+            `<div class="empty">
+                ქრონოლოგია ჯერ ცარიელია.
+            </div>`;
 
         return;
 
     }
 
 
-    container.innerHTML =
-        data.map(function(item){
-
-            return `
+    box.innerHTML =
+        data.map(item=>`
 
             <div class="item">
 
                 <div class="item-type">
-                    ${escapeHTML(item.date)}
+                    ${safe(item.date)}
                 </div>
 
                 <h4>
-                    ${escapeHTML(item.title)}
+                    ${safe(item.title)}
                 </h4>
 
-                <div class="item-description">
-                    ${escapeHTML(item.description)}
+                <div class="item-text">
+                    ${safe(item.description)}
                 </div>
 
-                <div class="item-actions">
+                <div class="actions">
 
                     <button
-                        class="small-btn delete-btn"
-                        onclick="deleteTimeline(${item.id})"
+                        class="btn btn-danger"
+                        onclick="deleteItem('ts_timeline',${item.id},renderTimeline)"
                     >
                         🗑️ წაშლა
                     </button>
@@ -2116,76 +1969,35 @@ function renderTimeline(){
 
             </div>
 
-            `;
-
-        })
-        .join("");
+        `).join("");
 
 }
 
 
-function deleteTimeline(id){
-
-    const data =
-        getData("ts_timeline")
-        .filter(function(item){
-
-            return item.id !== id;
-
-        });
-
-
-    saveData(
-        "ts_timeline",
-        data
-    );
-
-
-    renderTimeline();
-
-    updateStats();
-
-    notify(
-        "ქრონოლოგიური მოვლენა წაიშალა."
-    );
-
-}
-
-
-/* ======================================================
+/* =====================================================
    SCHEDULE
-====================================================== */
+===================================================== */
 
 function addSchedule(){
 
     const day =
-        document
-        .getElementById("scheduleDay")
-        .value;
+        document.getElementById("scheduleDay").value;
 
     const time =
-        document
-        .getElementById("scheduleTime")
-        .value;
+        document.getElementById("scheduleTime").value;
 
     const subject =
-        document
-        .getElementById("scheduleSubject")
-        .value
-        .trim();
+        document.getElementById("scheduleSubject")
+        .value.trim();
 
     const topic =
-        document
-        .getElementById("scheduleTopic")
-        .value
-        .trim();
+        document.getElementById("scheduleTopic")
+        .value.trim();
 
 
     if(!time || !subject || !topic){
 
-        notify(
-            "გთხოვ შეავსე ცხრილის ყველა ველი."
-        );
+        notify("შეავსე ცხრილის ყველა ველი.");
 
         return;
 
@@ -2199,42 +2011,25 @@ function addSchedule(){
     data.push({
 
         id:Date.now(),
-
-        day:day,
-
-        time:time,
-
-        subject:subject,
-
-        topic:topic
+        day,
+        time,
+        subject,
+        topic
 
     });
 
 
-    saveData(
-        "ts_schedule",
-        data
-    );
+    saveData("ts_schedule",data);
 
 
-    document
-    .getElementById("scheduleTime")
-    .value = "";
-
-    document
-    .getElementById("scheduleSubject")
-    .value = "";
-
-    document
-    .getElementById("scheduleTopic")
-    .value = "";
+    document.getElementById("scheduleTime").value="";
+    document.getElementById("scheduleSubject").value="";
+    document.getElementById("scheduleTopic").value="";
 
 
     renderSchedule();
 
-    notify(
-        "ცხრილში დაემატა."
-    );
+    notify("ცხრილში დაემატა.");
 
 }
 
@@ -2244,70 +2039,59 @@ function renderSchedule(){
     const data =
         getData("ts_schedule");
 
-    const container =
-        document
-        .getElementById("scheduleList");
+    const box =
+        document.getElementById("scheduleList");
 
 
-    if(data.length === 0){
+    if(!data.length){
 
-        container.innerHTML =
-        `<div class="empty">
-            ცხრილი ჯერ ცარიელია.
-        </div>`;
+        box.innerHTML =
+            `<div class="empty">
+                ცხრილი ჯერ ცარიელია.
+            </div>`;
 
         return;
 
     }
 
 
-    container.innerHTML = `
+    box.innerHTML = `
 
-        <table class="admin-table">
+        <div class="table-scroll">
+
+        <table>
 
             <thead>
 
                 <tr>
-
                     <th>დღე</th>
                     <th>დრო</th>
                     <th>საგანი</th>
                     <th>თემა</th>
                     <th>მართვა</th>
-
                 </tr>
 
             </thead>
 
             <tbody>
 
-                ${data.map(function(item){
-
-                    return `
+                ${data.map(item=>`
 
                     <tr>
 
-                        <td>
-                            ${escapeHTML(item.day)}
-                        </td>
+                        <td>${safe(item.day)}</td>
 
-                        <td>
-                            ${escapeHTML(item.time)}
-                        </td>
+                        <td>${safe(item.time)}</td>
 
-                        <td>
-                            ${escapeHTML(item.subject)}
-                        </td>
+                        <td>${safe(item.subject)}</td>
 
-                        <td>
-                            ${escapeHTML(item.topic)}
-                        </td>
+                        <td>${safe(item.topic)}</td>
 
                         <td>
 
                             <button
-                                class="small-btn delete-btn"
-                                onclick="deleteSchedule(${item.id})"
+                                class="btn btn-danger"
+                                onclick="deleteItem('ts_schedule',${item.id},renderSchedule)"
                             >
                                 🗑️
                             </button>
@@ -2316,124 +2100,215 @@ function renderSchedule(){
 
                     </tr>
 
-                    `;
-
-                }).join("")}
+                `).join("")}
 
             </tbody>
 
         </table>
+
+        </div>
 
     `;
 
 }
 
 
-function deleteSchedule(id){
+/* =====================================================
+   ANNOUNCEMENTS
+===================================================== */
+
+function addAnnouncement(){
+
+    const title =
+        document.getElementById("announcementTitle")
+        .value.trim();
+
+    const text =
+        document.getElementById("announcementText")
+        .value.trim();
+
+
+    if(!title || !text){
+
+        notify("შეავსე განცხადების ორივე ველი.");
+
+        return;
+
+    }
+
 
     const data =
-        getData("ts_schedule")
-        .filter(function(item){
-
-            return item.id !== id;
-
-        });
+        getData("ts_announcements");
 
 
-    saveData(
-        "ts_schedule",
-        data
-    );
+    data.push({
+
+        id:Date.now(),
+        title,
+        text,
+        createdAt:new Date().toLocaleString("ka-GE")
+
+    });
 
 
-    renderSchedule();
+    saveData("ts_announcements",data);
 
-    notify(
-        "ცხრილის ჩანაწერი წაიშალა."
-    );
+
+    document.getElementById("announcementTitle").value="";
+    document.getElementById("announcementText").value="";
+
+
+    renderAnnouncements();
+
+    notify("განცხადება დაემატა.");
 
 }
 
 
-/* ======================================================
-   DASHBOARD STATISTICS
-====================================================== */
+function renderAnnouncements(){
+
+    const data =
+        getData("ts_announcements");
+
+    const box =
+        document.getElementById("announcementsList");
+
+
+    if(!data.length){
+
+        box.innerHTML =
+            `<div class="empty">
+                განცხადება ჯერ არ დამატებულა.
+            </div>`;
+
+        return;
+
+    }
+
+
+    box.innerHTML =
+        data.map(item=>`
+
+            <div class="item">
+
+                <h4>
+                    ${safe(item.title)}
+                </h4>
+
+                <div class="item-text">
+                    ${safe(item.text)}
+                </div>
+
+                <div class="actions">
+
+                    <button
+                        class="btn btn-danger"
+                        onclick="deleteItem('ts_announcements',${item.id},renderAnnouncements)"
+                    >
+                        🗑️ წაშლა
+                    </button>
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =====================================================
+   DELETE
+===================================================== */
+
+function deleteItem(key,id,renderFunction){
+
+    const data =
+        getData(key)
+        .filter(item=>item.id !== id);
+
+
+    saveData(key,data);
+
+    renderFunction();
+
+    updateStats();
+
+    notify("ჩანაწერი წაიშალა.");
+
+}
+
+
+/* =====================================================
+   STATISTICS
+===================================================== */
 
 function updateStats(){
 
-    document
-    .getElementById("materialCount")
-    .textContent =
+    document.getElementById("materialCount")
+        .textContent =
         getData("ts_materials").length;
 
+    document.getElementById("noteCount")
+        .textContent =
+        getData("ts_notes").length;
 
-    document
-    .getElementById("sourceCount")
-    .textContent =
+    document.getElementById("sourceCount")
+        .textContent =
         getData("ts_sources").length;
 
-
-    document
-    .getElementById("timelineCount")
-    .textContent =
+    document.getElementById("timelineCount")
+        .textContent =
         getData("ts_timeline").length;
 
 }
 
 
-/* ======================================================
-   LOAD EVERYTHING
-====================================================== */
+/* =====================================================
+   LOAD
+===================================================== */
 
 function loadAll(){
 
     renderMaterials();
-
+    renderNotes();
     renderSources();
-
     renderTimeline();
-
     renderSchedule();
+    renderAnnouncements();
 
     updateStats();
 
 }
 
 
-/* ======================================================
+/* =====================================================
    NOTIFICATION
-====================================================== */
+===================================================== */
 
 function notify(message){
 
     const toast =
-        document
-        .getElementById("toast");
+        document.getElementById("toast");
 
-
-    toast.textContent =
-        message;
-
+    toast.textContent = message;
 
     toast.classList.add("show");
 
-
-    setTimeout(function(){
-
+    setTimeout(()=>{
         toast.classList.remove("show");
-
-    },3000);
+    },2800);
 
 }
 
 
-/* ======================================================
-   SECURITY HELPERS
-====================================================== */
+/* =====================================================
+   BASIC HTML SAFETY
+===================================================== */
 
-function escapeHTML(value){
+function safe(value){
 
-    return String(value)
+    return String(value ?? "")
         .replaceAll("&","&amp;")
         .replaceAll("<","&lt;")
         .replaceAll(">","&gt;")
@@ -2443,9 +2318,9 @@ function escapeHTML(value){
 }
 
 
-function escapeAttribute(value){
+function safeAttr(value){
 
-    return String(value)
+    return String(value ?? "")
         .replaceAll('"',"&quot;")
         .replaceAll("'","&#039;");
 
