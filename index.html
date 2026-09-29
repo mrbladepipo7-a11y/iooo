@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TS History — ისტორიის აკადემია</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family: Georgia, "Times New Roman", serif;
+    background:#f4f0e7;
+    color:#25231f;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(31,29,25,.97);
+    border-bottom:1px solid #9d875d;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+.navbar{
+    max-width:1250px;
+    margin:auto;
+    padding:16px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    color:#e4c98b;
+    font-size:25px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.logo span{
+    display:block;
+    color:#eee4cf;
+    font-size:10px;
+    letter-spacing:4px;
+    margin-top:2px;
+}
+
+nav{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav button{
+    background:none;
+    border:0;
+    color:#eee8dc;
+    padding:9px 12px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:14px;
+    transition:.25s;
+}
+
+nav button:hover{
+    color:#e2bf76;
+}
+
+.login-btn{
+    border:1px solid #b99a62!important;
+    border-radius:6px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:650px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    background:
+        linear-gradient(rgba(24,22,18,.82),rgba(24,22,18,.9)),
+        radial-gradient(circle at 50% 30%,#8d7549,#211f1a 65%);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px solid rgba(220,190,125,.2);
+    border-radius:50%;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:850px;
+    padding:30px;
+}
+
+.eyebrow{
+    color:#d9b96e;
+    letter-spacing:6px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    color:#f4e7c7;
+    font-size:clamp(48px,9vw,100px);
+    letter-spacing:7px;
+    margin-bottom:10px;
+}
+
+.hero h2{
+    color:#d9c8a4;
+    font-size:24px;
+    font-weight:normal;
+    margin-bottom:25px;
+}
+
+.hero p{
+    color:#d4cec2;
+    line-height:1.8;
+    max-width:650px;
+    margin:auto;
+}
+
+.hero-buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+    padding:13px 24px;
+    border-radius:5px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:15px;
+    transition:.25s;
+}
+
+.btn-gold{
+    background:#b89455;
+    color:#fff;
+}
+
+.btn-gold:hover{
+    background:#96743e;
+    transform:translateY(-2px);
+}
+
+.btn-dark{
+    background:transparent;
+    color:#eadfca;
+    border:1px solid #9e885f;
+}
+
+/* ================= GENERAL ================= */
+
+section{
+    padding:75px 20px;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title small{
+    color:#9a7943;
+    letter-spacing:3px;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin:8px 0;
+}
+
+.section-title p{
+    color:#706b62;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:#fffdf8;
+    border:1px solid #ded5c4;
+    border-radius:8px;
+    padding:28px;
+    box-shadow:0 8px 25px rgba(55,45,30,.06);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(55,45,30,.12);
+}
+
+.card-icon{
+    font-size:32px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#332d24;
+}
+
+.card p{
+    color:#6c665c;
+    line-height:1.7;
+}
+
+.card-link{
+    margin-top:18px;
+    display:inline-block;
+    color:#9a753c;
+    cursor:pointer;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:2px;
+    height:100%;
+    background:#bda273;
+}
+
+.timeline-item{
+    width:50%;
+    padding:15px 35px;
+    position:relative;
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    left:50%;
+}
+
+.timeline-item::after{
+    content:"";
+    position:absolute;
+    top:28px;
+    width:13px;
+    height:13px;
+    background:#9d7842;
+    border-radius:50%;
+    border:3px solid #f4f0e7;
+}
+
+.timeline-item:nth-child(odd)::after{
+    right:-8px;
+}
+
+.timeline-item:nth-child(even)::after{
+    left:-8px;
+}
+
+.timeline-box{
+    background:#fffdf8;
+    border:1px solid #ded5c4;
+    padding:20px;
+    border-radius:7px;
+}
+
+.timeline-date{
+    color:#9a753c;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+/* ================= SOURCES ================= */
+
+.source-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.source{
+    padding:22px;
+    background:#302c25;
+    color:#e8ddc6;
+    border-left:4px solid #b39460;
+    border-radius:4px;
+}
+
+.source h3{
+    margin-bottom:8px;
+    color:#dfc58e;
+}
+
+.source p{
+    color:#c8c0b0;
+    line-height:1.6;
+}
+
+/* ================= TABLE ================= */
+
+.schedule-wrap{
+    overflow-x:auto;
+}
+
+.schedule{
+    width:100%;
+    border-collapse:collapse;
+    background:#fffdf8;
+}
+
+.schedule th,
+.schedule td{
+    border:1px solid #ddd2bd;
+    padding:14px;
+    text-align:left;
+}
+
+.schedule th{
+    background:#302c25;
+    color:#ead8af;
+}
+
+.schedule tr:nth-child(even){
+    background:#f8f4eb;
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+    display:flex;
+    max-width:700px;
+    margin:0 auto 35px;
+}
+
+.search-box input{
+    flex:1;
+    padding:15px;
+    border:1px solid #cfc3ac;
+    border-radius:6px 0 0 6px;
+    outline:none;
+    font-family:inherit;
+    font-size:15px;
+}
+
+.search-box button{
+    padding:0 25px;
+    border:0;
+    background:#8f6d39;
+    color:white;
+    border-radius:0 6px 6px 0;
+    cursor:pointer;
+}
+
+/* ================= LOGIN ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    z-index:3000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:430px;
+    background:#fffdf8;
+    padding:35px;
+    border-radius:9px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:18px;
+    top:14px;
+    border:0;
+    background:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.modal-box h2{
+    margin-bottom:8px;
+}
+
+.modal-box p{
+    color:#777;
+    margin-bottom:25px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+}
+
+.form-group input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.form-submit{
+    width:100%;
+    margin-top:10px;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard{
+    display:none;
+    background:#24211c;
+    color:#eee5d2;
+    padding:70px 20px;
+}
+
+.dashboard.active{
+    display:block;
+}
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.stat{
+    padding:25px;
+    border:1px solid #67583f;
+    background:#302b24;
+    border-radius:7px;
+}
+
+.stat-number{
+    color:#dfbd78;
+    font-size:34px;
+    font-weight:bold;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#1f1d19;
+    color:#bdb5a7;
+    text-align:center;
+    padding:35px 20px;
+}
+
+footer strong{
+    color:#d9b86f;
+}
+
+.footer-line{
+    height:1px;
+    background:#504838;
+    max-width:600px;
+    margin:20px auto;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#302c25;
+    color:#f0e4cc;
+    padding:15px 20px;
+    border-left:4px solid #c5a466;
+    border-radius:5px;
+    opacity:0;
+    transform:translateY(20px);
+    transition:.3s;
+    z-index:5000;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:850px){
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    nav button{
+        font-size:12px;
+        padding:7px;
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        flex-direction:column;
+    }
+
+    nav{
+        gap:2px;
+    }
+
+    .cards,
+    .source-list,
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        min-height:570px;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .timeline::before{
+        left:10px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even){
+        width:100%;
+        left:0;
+        text-align:left;
+        padding-left:35px;
+    }
+
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after{
+        left:4px;
+        right:auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+<div class="navbar">
+
+<div class="logo">
+TS HISTORY
+<span>ისტორიის აკადემია</span>
+</div>
+
+<nav>
+<button onclick="go('home')">მთავარი</button>
+<button onclick="go('materials')">მასალები</button>
+<button onclick="go('schedule')">ცხრილი</button>
+<button onclick="go('timeline')">ქრონოლოგია</button>
+<button onclick="go('sources')">წყაროები</button>
+</nav>
+
+<button class="btn login-btn" onclick="openLogin()">🔐 Login</button>
+
+</div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="eyebrow">TS HISTORY • KNOWLEDGE • MEMORY</div>
+
+<h1>TS HISTORY</h1>
+
+<h2>ისტორია არ არის მხოლოდ წარსული.</h2>
+
+<p>
+ეს არის სივრცე ისტორიის შესასწავლად, გასააზრებლად და
+შესანარჩუნებლად. აქ თავმოყრილია სასწავლო მასალები,
+კონსპექტები, ქრონოლოგიური მოვლენები და ისტორიული წყაროები.
+</p>
+
+<div class="hero-buttons">
+<button class="btn btn-gold" onclick="go('materials')">
+📚 სასწავლო მასალები
+</button>
+
+<button class="btn btn-dark" onclick="go('timeline')">
+🕰️ ქრონოლოგიის ნახვა
+</button>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= MATERIALS ================= -->
+
+<section id="materials">
+
+<div class="container">
+
+<div class="section-title">
+<small>LEARNING CENTER</small>
+<h2>სასწავლო მასალები</h2>
+<p>ისტორიის შესწავლისთვის შექმნილი ძირითადი მიმართულებები</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-icon">🏛️</div>
+<h3>საქართველოს ისტორია</h3>
+<p>
+უძველესი პერიოდიდან თანამედროვე საქართველოს ისტორიამდე —
+მნიშვნელოვანი მოვლენები, სახელმწიფოები და ისტორიული პირები.
+</p>
+<span class="card-link" onclick="notify('საქართველოს ისტორიის განყოფილება მალე დაემატება')">
+გახსნა →
+</span>
+</div>
+
+<div class="card">
+<div class="card-icon">🌍</div>
+<h3>მსოფლიო ისტორია</h3>
+<p>
+ცივილიზაციები, იმპერიები, ომები, რევოლუციები და მსოფლიო
+ისტორიის მნიშვნელოვანი გარდატეხები.
+</p>
+<span class="card-link" onclick="notify('მსოფლიო ისტორიის მასალები მალე დაემატება')">
+გახსნა →
+</span>
+</div>
+
+<div class="card">
+<div class="card-icon">📜</div>
+<h3>კონსპექტები</h3>
+<p>
+მოკლე და სტრუქტურირებული ჩანაწერები გამოცდებისა და
+სასწავლო პროცესისთვის.
+</p>
+<span class="card-link" onclick="notify('კონსპექტების ბაზა მალე დაემატება')">
+გახსნა →
+</span>
+</div>
+
+<div class="card">
+<div class="card-icon">⚔️</div>
+<h3>ომები და ბრძოლები</h3>
+<p>
+მნიშვნელოვანი სამხედრო კამპანიები, ბრძოლები,
+მხარეები და ისტორიული შედეგები.
+</p>
+<span class="card-link" onclick="notify('ბრძოლების არქივი მალე დაემატება')">
+გახსნა →
+</span>
+</div>
+
+<div class="card">
+<div class="card-icon">👑</div>
+<h3>ისტორიული პიროვნებები</h3>
+<p>
+მეფეები, მხედართმთავრები, მეცნიერები და სხვა მნიშვნელოვანი
+ისტორიული ფიგურები.
+</p>
+<span class="card-link" onclick="notify('პიროვნებების არქივი მალე დაემატება')">
+გახსნა →
+</span>
+</div>
+
+<div class="card">
+<div class="card-icon">🎓</div>
+<h3>გამოცდის მომზადება</h3>
+<p>
+საკითხები, ტესტები და სავარჯიშოები ისტორიის გამოცდისთვის.
+</p>
+<span class="card-link" onclick="notify('ტესტების სისტემა მალე დაემატება')">
+გახსნა →
+</span>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<section style="padding-top:20px;padding-bottom:60px;">
+
+<div class="container">
+
+<div class="section-title">
+<small>ARCHIVE SEARCH</small>
+<h2>ისტორიული ძიება</h2>
+<p>მოძებნე სასურველი ისტორიული თემა</p>
+</div>
+
+<div class="search-box">
+<input id="searchInput" placeholder="მაგ: დავით აღმაშენებელი, რომი, ლაზიკა...">
+<button onclick="searchHistory()">ძიება</button>
+</div>
+
+<div id="searchResult"></div>
+
+</div>
+</section>
+
+
+<!-- ================= TIMELINE ================= -->
+
+<section id="timeline">
+
+<div class="container">
+
+<div class="section-title">
+<small>HISTORICAL TIMELINE</small>
+<h2>ისტორიული ქრონოლოგია</h2>
+<p>მნიშვნელოვანი მოვლენები დროის ხაზზე</p>
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-box">
+<div class="timeline-date">ძვ. წ. IV–III სს.</div>
+<h3>ქართლის სამეფოს ჩამოყალიბება</h3>
+<p>იბერიის პოლიტიკური გაძლიერების მნიშვნელოვანი პერიოდი.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-box">
+<div class="timeline-date">I–III საუკუნეები</div>
+<h3>რომი და კავკასია</h3>
+<p>რომის გავლენა შავი ზღვისა და კავკასიის რეგიონში.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-box">
+<div class="timeline-date">IV–VI საუკუნეები</div>
+<h3>ქრისტიანობის გავრცელება</h3>
+<p>ქრისტიანობის განმტკიცება საქართველოში და რეგიონში.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-box">
+<div class="timeline-date">VIII–X საუკუნეები</div>
+<h3>ქართული სამეფო-სამთავროები</h3>
+<p>პოლიტიკური გაერთიანებისა და სახელმწიფოებრივი განვითარების პერიოდი.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-box">
+<div class="timeline-date">XI–XIII საუკუნეები</div>
+<h3>საქართველოს ოქროს ხანა</h3>
+<p>საქართველოს პოლიტიკური და კულტურული აღმავლობის ეპოქა.</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-box">
+<div class="timeline-date">XIX საუკუნე</div>
+<h3>რუსეთის იმპერიის პერიოდი</h3>
+<p>საქართველოს პოლიტიკური მდგომარეობის მნიშვნელოვანი ცვლილებები.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- ================= SOURCES ================= -->
+
+<section id="sources">
+
+<div class="container">
+
+<div class="section-title">
+<small>HISTORICAL SOURCES</small>
+<h2>ისტორიული წყაროები</h2>
+<p>წყაროების შესწავლისა და ანალიზის სივრცე</p>
+</div>
+
+<div class="source-list">
+
+<div class="source">
+<h3>📖 მატიანეები</h3>
+<p>
+ქართული ისტორიული თხზულებები და ქრონიკები, რომლებიც
+საქართველოს წარსულის შესწავლისთვის მნიშვნელოვან მასალას წარმოადგენს.
+</p>
+</div>
+
+<div class="source">
+<h3>🏺 არქეოლოგიური წყაროები</h3>
+<p>
+არქეოლოგიური აღმოჩენები, ნივთიერი კულტურის ნიმუშები
+და ისტორიული ძეგლები.
+</p>
+</div>
+
+<div class="source">
+<h3>📜 დოკუმენტური წყაროები</h3>
+<p>
+სიგელები, ხელნაწერები, წერილები და სხვა წერილობითი მასალები.
+</p>
+</div>
+
+<div class="source">
+<h3>🌍 უცხოური წყაროები</h3>
+<p>
+საქართველოსა და კავკასიის შესახებ ბიზანტიური, რომაული,
+სპარსული და სხვა ისტორიული წყაროები.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- ================= SCHEDULE ================= -->
+
+<section id="schedule">
+
+<div class="container">
+
+<div class="section-title">
+<small>STUDENT SCHEDULE</small>
+<h2>სასწავლო ცხრილი</h2>
+<p>მაგალითი სტუდენტური კვირის განრიგისა</p>
+</div>
+
+<div class="schedule-wrap">
+
+<table class="schedule">
+
+<thead>
+<tr>
+<th>დღე</th>
+<th>დრო</th>
+<th>საგანი</th>
+<th>თემა</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>ორშაბათი</td>
+<td>10:00</td>
+<td>საქართველოს ისტორია</td>
+<td>შუა საუკუნეების საქართველო</td>
+</tr>
+
+<tr>
+<td>სამშაბათი</td>
+<td>12:00</td>
+<td>მსოფლიო ისტორია</td>
+<td>რომის იმპერია</td>
+</tr>
+
+<tr>
+<td>ოთხშაბათი</td>
+<td>11:00</td>
+<td>საქართველოს ისტორია</td>
+<td>ერთიანი საქართველოს ჩამოყალიბება</td>
+</tr>
+
+<tr>
+<td>ხუთშაბათი</td>
+<td>14:00</td>
+<td>წყაროთმცოდნეობა</td>
+<td>ისტორიული წყაროების ანალიზი</td>
+</tr>
+
+<tr>
+<td>პარასკევი</td>
+<td>13:00</td>
+<td>მსოფლიო ისტორია</td>
+<td>ევროპის შუა საუკუნეები</td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+</div>
+</section>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="dashboard" id="dashboard">
+
+<div class="container">
+
+<div class="section-title">
+<small>STUDENT AREA</small>
+<h2 style="color:#eee5d2">სტუდენტის Dashboard</h2>
+<p style="color:#aaa294">შენი სასწავლო სივრცე</p>
+</div>
+
+<div class="dashboard-grid">
+
+<div class="stat">
+<div class="stat-number">12</div>
+<p>კონსპექტი</p>
+</div>
+
+<div class="stat">
+<div class="stat-number">8</div>
+<p>დასრულებული თემა</p>
+</div>
+
+<div class="stat">
+<div class="stat-number">74%</div>
+<p>პროგრესი</p>
+</div>
+
+<div class="stat">
+<div class="stat-number">5</div>
+<p>ტესტი</p>
+</div>
+
+</div>
+
+<br><br>
+
+<button class="btn btn-gold" onclick="notify('პირადი სასწავლო სივრცე მალე გაფართოვდება')">
+ჩემი მასალები
+</button>
+
+</div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<strong>TS HISTORY</strong>
+
+<div class="footer-line"></div>
+
+<p>ისტორიის ცოდნა — წარსულის გაგება და მომავლის გააზრება.</p>
+
+<p style="margin-top:10px;font-size:13px;">
+© 2026 TS History. ყველა უფლება დაცულია.
+</p>
+
+</footer>
+
+
+<!-- ================= LOGIN MODAL ================= -->
+
+<div class="modal" id="loginModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeLogin()">×</button>
+
+<h2>TS History Login</h2>
+
+<p>შედი შენს სტუდენტურ სივრცეში</p>
+
+<div class="form-group">
+<label>ელფოსტა</label>
+<input id="email" type="email" placeholder="student@example.com">
+</div>
+
+<div class="form-group">
+<label>პაროლი</label>
+<input id="password" type="password" placeholder="••••••••">
+</div>
+
+<button class="btn btn-gold form-submit" onclick="login()">
+შესვლა
+</button>
+
+</div>
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+/* ================= NAVIGATION ================= */
+
+function go(id){
+
+    const element = document.getElementById(id);
+
+    if(element){
+        element.scrollIntoView({
+            behavior:"smooth"
+        });
+    }
+}
+
+
+/* ================= LOGIN ================= */
+
+function openLogin(){
+
+    document.getElementById("loginModal")
+    .classList.add("active");
+
+}
+
+function closeLogin(){
+
+    document.getElementById("loginModal")
+    .classList.remove("active");
+
+}
+
+function login(){
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value.trim();
+
+    if(!email || !password){
+
+        notify("გთხოვ შეავსო ორივე ველი.");
+
+        return;
+    }
+
+    closeLogin();
+
+    document.getElementById("dashboard")
+    .classList.add("active");
+
+    setTimeout(function(){
+
+        document.getElementById("dashboard")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+    },100);
+
+    notify("წარმატებით შეხვედი TS History-ში.");
+
+}
+
+
+/* ================= SEARCH ================= */
+
+function searchHistory(){
+
+    const input =
+        document.getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const result =
+        document.getElementById("searchResult");
+
+    if(!input){
+
+        result.innerHTML = `
+        <div class="card">
+            ჩაწერე ისტორიული თემის სახელი.
+        </div>
+        `;
+
+        return;
+    }
+
+    const topics = [
+
+        "დავით აღმაშენებელი",
+        "თამარ მეფე",
+        "ლაზიკა",
+        "იბერია",
+        "რომის იმპერია",
+        "ბიზანტია",
+        "საქართველოს ოქროს ხანა",
+        "კოლხეთი",
+        "კახეთი",
+        "სამეგრელო",
+        "დადიანი"
+
+    ];
+
+    const found =
+        topics.filter(topic =>
+            topic.toLowerCase().includes(input)
+        );
+
+    if(found.length){
+
+        result.innerHTML = `
+        <div class="card">
+            <h3>ნაპოვნია:</h3>
+            <p style="margin-top:10px;">
+                ${found.join(" • ")}
+            </p>
+        </div>
+        `;
+
+    }else{
+
+        result.innerHTML = `
+        <div class="card">
+            <h3>შედეგი ვერ მოიძებნა</h3>
+            <p style="margin-top:10px;">
+                ეს თემა ჯერ არ არის დამატებული TS History-ის დემო არქივში.
+            </p>
+        </div>
+        `;
+
+    }
+
+}
+
+
+/* ================= TOAST ================= */
+
+function notify(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },3000);
+
+}
+
+
+/* ================= MODAL OUTSIDE CLICK ================= */
+
+document.getElementById("loginModal")
+.addEventListener("click",function(event){
+
+    if(event.target === this){
+
+        closeLogin();
+
+    }
+
+});
+
+
+</script>
+
+</body>
+</html>
