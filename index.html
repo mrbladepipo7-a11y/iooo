@@ -3,815 +3,731 @@
 <html lang="ka">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TS History — Academic Center</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#18231f">
+<meta name="description" content="TS History — ისტორიის სტუდენტური სივრცე">
+
+<title>TS History — ისტორიის სტუდენტური სივრცე</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;500;600;700&display=swap');
 
 :root{
-    --bg:#07090d;
-    --panel:#10141b;
-    --panel2:#151b23;
-    --gold:#c7a25a;
-    --gold2:#f0d48d;
-    --white:#f5f1e7;
-    --muted:#99958c;
-    --line:rgba(255,255,255,.08);
+    --ink:#18231f;
+    --ink2:#22332d;
+    --paper:#eee9dc;
+    --paper2:#f8f5ec;
+    --line:#c9c0aa;
+    --gold:#a88345;
+    --gold2:#c7a86c;
+    --muted:#716f65;
+    --white:#fffdf8;
 }
 
-html{scroll-behavior:smooth}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-    background:
-    radial-gradient(circle at 10% 10%,rgba(199,162,90,.10),transparent 30%),
-    radial-gradient(circle at 90% 80%,rgba(40,70,110,.10),transparent 30%),
-    #07090d;
-    color:var(--white);
-    font-family:Georgia,"Times New Roman",serif;
-    min-height:100vh;
-    overflow-x:hidden;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Noto Sans Georgian",sans-serif;
 }
 
-button,input,select,textarea{font:inherit}
-
-button{cursor:pointer}
-
-#particles{
+/* subtle paper texture */
+body:before{
+    content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
-    z-index:-1;
-    overflow:hidden;
+    opacity:.18;
+    background-image:
+      radial-gradient(#756c5a .55px,transparent .55px);
+    background-size:7px 7px;
+    z-index:999;
 }
 
-.particle{
-    position:absolute;
-    width:2px;
-    height:2px;
-    border-radius:50%;
-    background:var(--gold2);
-    opacity:.35;
-    animation:rise linear infinite;
-}
-
-@keyframes rise{
-    from{transform:translateY(110vh)}
-    to{transform:translateY(-10vh) translateX(80px)}
-}
-
-/* HEADER */
+/* ================= HEADER ================= */
 
 header{
-    position:sticky;
+    position:fixed;
     top:0;
-    z-index:1000;
+    left:0;
+    width:100%;
     height:78px;
+    z-index:100;
+
+    background:rgba(24,35,31,.96);
+    border-bottom:1px solid rgba(199,168,108,.35);
+    backdrop-filter:blur(12px);
+}
+
+.nav{
+    max-width:1280px;
+    height:100%;
+    margin:auto;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 6%;
-    background:rgba(5,7,10,.82);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(199,162,90,.15);
+
+    padding:0 28px;
 }
 
-.logo{
+.brand{
     display:flex;
     align-items:center;
-    gap:12px;
-    color:white;
+    gap:13px;
+    color:#f2ead9;
     text-decoration:none;
 }
 
-.logo-symbol{
-    width:45px;
-    height:45px;
-    border:1px solid var(--gold);
-    border-radius:50%;
+.brand-mark{
+    width:42px;
+    height:42px;
+    border:1px solid var(--gold2);
+
     display:grid;
     place-items:center;
+
+    font-family:"Noto Serif Georgian",serif;
     color:var(--gold2);
-    font-size:21px;
-}
-
-.logo-title{
-    font-size:18px;
-    font-weight:bold;
-    letter-spacing:4px;
-}
-
-.logo-sub{
-    display:block;
-    color:#77746e;
-    font-size:8px;
-    letter-spacing:3px;
-    margin-top:4px;
-}
-
-nav{
-    display:flex;
-    gap:5px;
-}
-
-nav button{
-    border:0;
-    background:transparent;
-    color:#aaa69e;
-    padding:10px 13px;
-    border-radius:6px;
-}
-
-nav button:hover,
-nav button.active{
-    color:var(--gold2);
-    background:rgba(199,162,90,.08);
-}
-
-/* HERO */
-
-.hero{
-    min-height:470px;
-    display:flex;
-    align-items:center;
-    padding:95px 7%;
-    position:relative;
-    overflow:hidden;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    width:650px;
-    height:650px;
-    right:-300px;
-    top:-300px;
-    border-radius:50%;
-    border:1px solid rgba(199,162,90,.14);
-    box-shadow:
-    0 0 0 70px rgba(199,162,90,.025),
-    0 0 0 140px rgba(199,162,90,.015);
-}
-
-.hero-content{
-    max-width:850px;
-    animation:heroIn 1s ease;
-}
-
-@keyframes heroIn{
-    from{opacity:0;transform:translateY(25px)}
-    to{opacity:1;transform:translateY(0)}
-}
-
-.eyebrow{
-    color:var(--gold);
-    font-size:10px;
-    letter-spacing:5px;
-    margin-bottom:18px;
-}
-
-.hero h1{
-    font-size:clamp(48px,7vw,88px);
-    line-height:.95;
-    margin-bottom:22px;
-    background:linear-gradient(100deg,#fff,var(--gold2),#fff);
-    background-size:200%;
-    -webkit-background-clip:text;
-    color:transparent;
-    animation:goldMove 5s infinite;
-}
-
-@keyframes goldMove{
-    0%,100%{background-position:0}
-    50%{background-position:100%}
-}
-
-.hero p{
-    max-width:720px;
-    color:#aaa69e;
-    line-height:1.9;
-    font-size:15px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:12px;
-    margin-top:30px;
-}
-
-.btn{
-    padding:13px 20px;
-    border-radius:6px;
-    border:1px solid transparent;
-    transition:.25s;
-}
-
-.gold-btn{
-    background:linear-gradient(120deg,#8c682e,var(--gold2));
-    color:#17130b;
-}
-
-.gold-btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 15px 35px rgba(199,162,90,.2);
-}
-
-.dark-btn{
-    color:#ddd8ce;
-    background:rgba(255,255,255,.04);
-    border-color:var(--line);
-}
-
-.dark-btn:hover{
-    border-color:var(--gold);
-    color:var(--gold2);
-}
-
-/* MAIN */
-
-.container{
-    width:min(1450px,92%);
-    margin:auto;
-}
-
-section.block{
-    padding:35px 0 25px;
-}
-
-/* SECTION TITLE */
-
-.section-title{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    margin-bottom:20px;
-}
-
-.section-title h2{
-    font-size:29px;
-}
-
-.section-title p{
-    color:var(--muted);
-    font-size:12px;
-    margin-top:6px;
-}
-
-/* STATS */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:13px;
-    padding:20px 0;
-}
-
-.stat{
-    padding:22px;
-    min-height:125px;
-    border:1px solid var(--line);
-    border-radius:10px;
-    background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.018));
-    transition:.3s;
-}
-
-.stat:hover{
-    transform:translateY(-5px);
-    border-color:rgba(199,162,90,.35);
-}
-
-.stat-icon{
-    color:var(--gold2);
-    font-size:20px;
-}
-
-.stat-number{
-    margin-top:9px;
-    font-size:30px;
-}
-
-.stat-label{
-    color:var(--muted);
-    font-size:11px;
-    margin-top:4px;
-}
-
-/* SCHEDULE */
-
-.schedule{
-    overflow:hidden;
-    border-radius:13px;
-    border:1px solid rgba(199,162,90,.18);
-    background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
-    box-shadow:0 25px 70px rgba(0,0,0,.3);
-}
-
-.schedule-top{
-    padding:22px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-bottom:1px solid var(--line);
-}
-
-.schedule-heading{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.clock{
-    width:48px;
-    height:48px;
-    display:grid;
-    place-items:center;
-    border:1px solid var(--gold);
-    border-radius:50%;
-    color:var(--gold2);
-}
-
-.schedule-heading h2{font-size:22px}
-
-.schedule-heading p{
-    color:var(--muted);
-    font-size:11px;
-    margin-top:4px;
-}
-
-.controls{
-    display:flex;
-    gap:6px;
-}
-
-.controls button{
-    width:38px;
-    height:38px;
-    border:1px solid var(--line);
-    border-radius:5px;
-    background:rgba(255,255,255,.04);
-    color:#ddd;
-}
-
-.controls button:hover{
-    color:var(--gold2);
-    border-color:var(--gold);
-}
-
-.table-wrapper{
-    overflow-x:auto;
-}
-
-.schedule-table{
-    width:100%;
-    min-width:1050px;
-    border-collapse:collapse;
-    table-layout:fixed;
-}
-
-.schedule-table th{
-    height:70px;
-    font-size:12px;
-    font-weight:normal;
-    color:#ddd8cf;
-    background:rgba(255,255,255,.025);
-    border-right:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-}
-
-.schedule-table th:first-child{width:80px}
-
-.schedule-table td{
-    height:88px;
-    padding:6px;
-    vertical-align:top;
-    border-right:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-}
-
-.time{
-    text-align:center;
-    padding-top:12px!important;
-    color:#716e68;
-    font-size:10px;
-}
-
-.today{
-    background:rgba(199,162,90,.045);
-}
-
-.today-mark{
-    display:block;
-    width:5px;
-    height:5px;
-    margin:5px auto;
-    border-radius:50%;
-    background:var(--gold2);
-    box-shadow:0 0 10px var(--gold2);
-}
-
-.lesson{
-    height:100%;
-    padding:10px;
-    border-radius:7px;
-    background:linear-gradient(145deg,rgba(199,162,90,.19),rgba(199,162,90,.035));
-    border:1px solid rgba(199,162,90,.3);
-    cursor:pointer;
-    transition:.25s;
-    position:relative;
-    overflow:hidden;
-}
-
-.lesson::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:0;
-    bottom:0;
-    width:3px;
-    background:linear-gradient(var(--gold2),var(--gold));
-}
-
-.lesson:hover{
-    transform:translateY(-3px) scale(1.02);
-    box-shadow:0 12px 30px rgba(199,162,90,.14);
-}
-
-.lesson-time{
-    color:var(--gold2);
-    font-size:9px;
-}
-
-.lesson-title{
-    margin-top:6px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.lesson-person{
-    margin-top:5px;
-    color:#aaa69e;
-    font-size:9px;
-}
-
-.tag{
-    display:inline-block;
-    margin-top:6px;
-    padding:3px 6px;
-    border-radius:3px;
-    background:rgba(255,255,255,.07);
-    color:#bbb6ad;
-    font-size:7px;
-}
-
-/* ACADEMIC CARDS */
-
-.academic-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-
-.academic-card{
-    padding:24px;
-    border-radius:11px;
-    border:1px solid var(--line);
-    background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
-    transition:.3s;
-    position:relative;
-    overflow:hidden;
-}
-
-.academic-card:hover{
-    transform:translateY(-5px);
-    border-color:rgba(199,162,90,.35);
-}
-
-.academic-icon{
-    font-size:28px;
-    color:var(--gold2);
-}
-
-.academic-card h3{
-    margin-top:13px;
     font-size:19px;
 }
 
-.academic-card p{
-    margin-top:8px;
-    color:var(--muted);
-    font-size:11px;
-    line-height:1.7;
-}
-
-.card-button{
-    margin-top:15px;
-    padding:8px 12px;
-    border:1px solid rgba(199,162,90,.25);
-    border-radius:5px;
-    background:rgba(199,162,90,.06);
-    color:#d4cfc5;
-}
-
-.card-button:hover{
-    color:var(--gold2);
-    border-color:var(--gold);
-}
-
-/* TIMELINE */
-
-.timeline{
-    position:relative;
-    padding:15px 0;
-}
-
-.timeline::before{
-    content:"";
-    position:absolute;
-    left:20px;
-    top:0;
-    bottom:0;
-    width:1px;
-    background:linear-gradient(transparent,var(--gold),transparent);
-}
-
-.timeline-item{
-    position:relative;
-    margin:0 0 18px 58px;
-    padding:18px;
-    border-radius:9px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.035);
-}
-
-.timeline-item::before{
-    content:"";
-    position:absolute;
-    left:-44px;
-    top:23px;
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:var(--gold2);
-    box-shadow:0 0 15px rgba(240,212,141,.35);
-}
-
-.timeline-year{
-    color:var(--gold2);
-    font-size:11px;
+.brand-title{
+    font-family:"Noto Serif Georgian",serif;
     letter-spacing:2px;
+    font-size:20px;
 }
 
-.timeline-item h3{
-    margin-top:6px;
-    font-size:18px;
+.brand-sub{
+    color:#a9a79d;
+    font-size:9px;
+    letter-spacing:2px;
+    margin-top:2px;
 }
 
-.timeline-item p{
-    color:var(--muted);
-    margin-top:6px;
+.nav-links{
+    display:flex;
+    gap:27px;
+}
+
+.nav-links a{
+    color:#c7c4b9;
+    text-decoration:none;
+    font-size:13px;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:var(--gold2);
+}
+
+.login-nav{
+    border:1px solid #9d814f;
+    color:#e3c78e !important;
+    padding:10px 17px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    padding:145px 25px 90px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24,35,31,.98) 0%,
+            rgba(24,35,31,.91) 55%,
+            rgba(24,35,31,.80) 100%
+        ),
+        radial-gradient(
+            circle at 85% 25%,
+            #80663a,
+            transparent 32%
+        );
+
+    color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:after{
+    content:"TS";
+    position:absolute;
+    right:-70px;
+    bottom:-190px;
+
+    font-family:"Noto Serif Georgian",serif;
+    font-size:520px;
+    color:rgba(255,255,255,.025);
+    line-height:1;
+}
+
+.hero-inner{
+    max-width:1180px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.eyebrow{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    color:#c6a96d;
     font-size:11px;
-    line-height:1.7;
+    letter-spacing:4px;
+    text-transform:uppercase;
+
+    margin-bottom:27px;
 }
 
-/* AVAILABILITY */
+.eyebrow span{
+    width:42px;
+    height:1px;
+    background:#c6a96d;
+}
 
-.availability{
+.hero h1{
+    max-width:850px;
+
+    font-family:"Noto Serif Georgian",serif;
+    font-size:clamp(40px,6vw,76px);
+    font-weight:500;
+    line-height:1.12;
+}
+
+.hero h1 em{
+    color:#d1b77e;
+    font-style:normal;
+}
+
+.hero-text{
+    max-width:680px;
+    margin-top:25px;
+
+    color:#bcbcb2;
+    line-height:2;
+    font-size:15px;
+}
+
+.hero-actions{
+    margin-top:40px;
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+}
+
+.primary{
+    padding:14px 25px;
+    border:1px solid var(--gold2);
+    background:var(--gold);
+    color:white;
+
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.secondary{
+    padding:14px 25px;
+    border:1px solid #696f68;
+    background:transparent;
+    color:#e6e2d8;
+
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.hero-meta{
+    margin-top:80px;
+
+    display:flex;
+    gap:45px;
+    flex-wrap:wrap;
+}
+
+.meta-item{
+    border-left:1px solid #6d6759;
+    padding-left:15px;
+}
+
+.meta-number{
+    font-family:"Noto Serif Georgian",serif;
+    color:#e0c48a;
+    font-size:25px;
+}
+
+.meta-label{
+    color:#898d85;
+    font-size:11px;
+    margin-top:3px;
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+    max-width:1180px;
+    margin:auto;
+    padding:100px 25px;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:25px;
+    margin-bottom:42px;
+}
+
+.section-kicker{
+    color:#9a7942;
+    letter-spacing:3px;
+    font-size:10px;
+    margin-bottom:10px;
+}
+
+.section h2{
+    font-family:"Noto Serif Georgian",serif;
+    font-weight:500;
+    font-size:36px;
+}
+
+.section-intro{
+    max-width:460px;
+    color:#6e6b62;
+    font-size:13px;
+    line-height:1.8;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
     display:grid;
-    grid-template-columns:1.2fr 1fr;
+    grid-template-columns:repeat(3,1fr);
     gap:18px;
 }
 
 .card{
-    padding:25px;
-    border-radius:11px;
+    position:relative;
+    min-height:230px;
+
+    padding:27px;
+
+    background:var(--paper2);
     border:1px solid var(--line);
-    background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+
+    transition:
+        transform .3s,
+        box-shadow .3s,
+        border-color .3s;
 }
 
-.card h3{font-size:22px}
-
-.card-description{
-    color:var(--muted);
-    font-size:11px;
-    line-height:1.6;
-    margin:7px 0 20px;
+.card:hover{
+    transform:translateY(-7px);
+    border-color:#a98a55;
+    box-shadow:0 17px 35px rgba(43,38,28,.10);
 }
 
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+.card-number{
+    color:#aa8750;
+    font-family:"Noto Serif Georgian",serif;
+    font-size:13px;
 }
 
-.form-full{grid-column:1/-1}
+.card h3{
+    margin-top:25px;
 
-label.title{
-    display:block;
-    color:#aaa69e;
-    font-size:10px;
-    margin-bottom:6px;
+    font-family:"Noto Serif Georgian",serif;
+    font-size:21px;
+    font-weight:600;
 }
 
-input,select,textarea{
-    width:100%;
-    padding:11px;
-    border-radius:5px;
-    outline:none;
-    border:1px solid rgba(255,255,255,.1);
-    background:rgba(0,0,0,.25);
-    color:white;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:var(--gold);
-}
-
-.days{
-    display:grid;
-    grid-template-columns:repeat(7,1fr);
-    gap:5px;
-}
-
-.day{
-    padding:10px 3px;
-    text-align:center;
-    color:#88847d;
-    border:1px solid var(--line);
-    border-radius:5px;
-    font-size:9px;
-    cursor:pointer;
-}
-
-.day input{display:none}
-
-.day.selected{
-    color:var(--gold2);
-    background:rgba(199,162,90,.1);
-    border-color:rgba(199,162,90,.5);
-}
-
-.next-label{
-    color:var(--gold);
-    font-size:9px;
-    letter-spacing:4px;
-}
-
-.next-title{
-    font-size:28px;
+.card p{
+    color:#777267;
+    font-size:13px;
+    line-height:1.8;
     margin-top:12px;
 }
 
-.next-time{
-    color:var(--gold2);
-    font-size:46px;
+.card-arrow{
+    position:absolute;
+    right:25px;
+    bottom:23px;
+    color:#9a7942;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline-section{
+    background:#1c2823;
+    color:white;
+}
+
+.timeline-wrap{
+    max-width:1180px;
+    margin:auto;
+    padding:100px 25px;
+}
+
+.timeline-line{
+    position:relative;
+    margin-top:60px;
+}
+
+.timeline-line:before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:#615b4d;
+}
+
+.event{
+    width:50%;
+    padding:0 45px 50px;
+    position:relative;
+}
+
+.event:nth-child(even){
+    margin-left:50%;
+}
+
+.event:after{
+    content:"";
+    position:absolute;
+    top:5px;
+    width:10px;
+    height:10px;
+
+    border:2px solid #c4a76a;
+    background:#1c2823;
+
+    border-radius:50%;
+}
+
+.event:nth-child(odd):after{
+    right:-6px;
+}
+
+.event:nth-child(even):after{
+    left:-6px;
+}
+
+.event-year{
+    color:#c5a76b;
+    font-family:"Noto Serif Georgian",serif;
+    font-size:18px;
+}
+
+.event h3{
     margin-top:8px;
+    font-family:"Noto Serif Georgian",serif;
+    font-weight:500;
 }
 
-.next-person{
-    color:var(--muted);
-    font-size:11px;
+.event p{
+    color:#a7aaa3;
     line-height:1.8;
-    margin-top:5px;
+    font-size:13px;
+    margin-top:9px;
 }
 
-.progress{
-    height:4px;
-    margin-top:28px;
-    background:rgba(255,255,255,.08);
-    overflow:hidden;
-}
+/* ================= LOGIN OVERLAY ================= */
 
-.progress span{
-    display:block;
-    width:65%;
-    height:100%;
-    background:linear-gradient(90deg,var(--gold),var(--gold2));
-}
+.overlay{
+    position:fixed;
+    inset:0;
+    z-index:500;
 
-/* SOURCES */
-
-.source-list{
-    display:grid;
-    gap:10px;
-}
-
-.source{
-    display:flex;
+    display:none;
     align-items:center;
-    justify-content:space-between;
-    padding:17px;
-    border:1px solid var(--line);
-    border-radius:8px;
-    background:rgba(255,255,255,.035);
-    transition:.25s;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(10,15,13,.82);
+    backdrop-filter:blur(12px);
 }
 
-.source:hover{
-    transform:translateX(5px);
-    border-color:rgba(199,162,90,.3);
-}
-
-.source-left{
+.overlay.show{
     display:flex;
-    align-items:center;
-    gap:13px;
 }
 
-.source-icon{
-    width:40px;
-    height:40px;
-    display:grid;
-    place-items:center;
-    border-radius:6px;
-    background:rgba(199,162,90,.08);
-    color:var(--gold2);
+.login-window{
+    width:min(100%,520px);
+
+    background:#f8f5ec;
+    color:var(--ink);
+
+    border:1px solid #9e875d;
+    box-shadow:0 35px 100px rgba(0,0,0,.5);
+
+    animation:appear .35s ease;
 }
 
-.source h4{font-size:14px}
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.98);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
 
-.source span{
+.login-top{
+    background:#1b2823;
+    color:white;
+    padding:27px 30px;
+}
+
+.login-top small{
+    color:#b99b60;
+    letter-spacing:3px;
+}
+
+.login-top h2{
+    margin-top:8px;
+    font-family:"Noto Serif Georgian",serif;
+    font-weight:500;
+}
+
+.login-body{
+    padding:30px;
+}
+
+.field{
+    margin-bottom:18px;
+}
+
+.field label{
     display:block;
-    color:var(--muted);
-    font-size:9px;
-    margin-top:4px;
+    color:#57564f;
+    font-size:12px;
+    margin-bottom:7px;
 }
 
-/* FOOTER */
+.field input{
+    width:100%;
+    padding:13px 14px;
+
+    border:1px solid #c9c0ac;
+    background:#fffdf8;
+
+    outline:none;
+    font-family:inherit;
+    font-size:14px;
+
+    transition:.2s;
+}
+
+.field input:focus{
+    border-color:#a07d46;
+    box-shadow:0 0 0 3px rgba(160,125,70,.08);
+}
+
+.score-note{
+    color:#8a867a;
+    font-size:10px;
+    line-height:1.6;
+    margin-top:6px;
+}
+
+.login-submit{
+    width:100%;
+    padding:14px;
+
+    border:0;
+    background:#26362f;
+    color:#e8d3a5;
+
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.login-submit:hover{
+    background:#17221e;
+}
+
+.close-login{
+    float:right;
+    border:0;
+    background:none;
+    color:#b9b7ae;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.error{
+    display:none;
+    margin-bottom:15px;
+
+    padding:11px;
+    background:#f0dddd;
+    border-left:3px solid #a64e43;
+
+    color:#7e332d;
+    font-size:12px;
+}
+
+/* ================= DASHBOARD ================= */
+
+.dashboard{
+    display:none;
+    min-height:100vh;
+    padding-top:78px;
+    background:#eee9dc;
+}
+
+.dashboard.show{
+    display:block;
+}
+
+.dash-header{
+    background:#1b2823;
+    color:white;
+    padding:55px 25px;
+}
+
+.dash-inner{
+    max-width:1180px;
+    margin:auto;
+}
+
+.dash-inner h1{
+    font-family:"Noto Serif Georgian",serif;
+    font-weight:500;
+}
+
+.user-line{
+    margin-top:10px;
+    color:#aeb1aa;
+}
+
+.user-score{
+    display:inline-block;
+    margin-top:20px;
+    padding:9px 13px;
+
+    border:1px solid #80683e;
+    color:#d3b676;
+    font-size:12px;
+}
+
+.dashboard-content{
+    max-width:1180px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.dash-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+}
+
+.dash-card{
+    padding:25px;
+    background:#f8f5ec;
+    border:1px solid #c9c0aa;
+}
+
+.dash-card span{
+    font-size:26px;
+}
+
+.dash-card h3{
+    margin-top:17px;
+    font-family:"Noto Serif Georgian",serif;
+}
+
+.dash-card p{
+    margin-top:7px;
+    color:#777267;
+    font-size:12px;
+    line-height:1.7;
+}
+
+.logout-btn{
+    margin-top:35px;
+    padding:11px 17px;
+    border:1px solid #a78b5a;
+    background:transparent;
+    color:#5e523d;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
-    margin-top:70px;
-    padding:38px 20px;
+    background:#141d1a;
+    color:#999b94;
+    padding:40px 25px;
     text-align:center;
-    color:#66635e;
-    border-top:1px solid var(--line);
-    font-size:10px;
+    font-size:11px;
 }
 
-/* TOAST */
-
-#toast{
-    position:fixed;
-    right:24px;
-    bottom:24px;
-    z-index:9999;
-    padding:14px 18px;
-    background:#171a20;
-    color:white;
-    border-left:3px solid var(--gold2);
-    border-radius:5px;
-    opacity:0;
-    transform:translateY(25px);
-    pointer-events:none;
-    transition:.3s;
+footer strong{
+    color:#c3a56b;
+    font-family:"Noto Serif Georgian",serif;
 }
 
-#toast.show{
-    opacity:1;
-    transform:translateY(0);
-}
+/* ================= RESPONSIVE ================= */
 
-/* RESPONSIVE */
+@media(max-width:850px){
 
-@media(max-width:950px){
-    .stats{grid-template-columns:1fr 1fr}
-    .academic-grid{grid-template-columns:1fr 1fr}
-    .availability{grid-template-columns:1fr}
-}
-
-@media(max-width:650px){
-    header{
-        height:auto;
-        padding:14px 5%;
-        flex-direction:column;
-        gap:10px;
+    .nav-links{
+        display:none;
     }
 
-    nav{
+    .cards,
+    .dash-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-head{
+        display:block;
+    }
+
+    .section-intro{
+        margin-top:15px;
+    }
+
+    .timeline-line:before{
+        left:8px;
+    }
+
+    .event,
+    .event:nth-child(even){
         width:100%;
-        overflow-x:auto;
+        margin-left:0;
+        padding-left:35px;
+        padding-right:0;
     }
 
-    nav button{white-space:nowrap}
-
-    .hero{padding:75px 6%}
-
-    .hero-buttons{flex-direction:column}
-
-    .stats,
-    .academic-grid{
-        grid-template-columns:1fr;
+    .event:after,
+    .event:nth-child(odd):after,
+    .event:nth-child(even):after{
+        left:3px;
+        right:auto;
     }
 
-    .form-grid{
-        grid-template-columns:1fr;
-    }
-
-    .form-full{grid-column:auto}
-
-    .days{
-        grid-template-columns:repeat(4,1fr);
+    .hero-meta{
+        gap:22px;
     }
 }
 </style>
@@ -819,680 +735,289 @@ footer{
 
 <body>
 
-<div id="particles"></div>
+<!-- ================= HEADER ================= -->
 
 <header>
 
-<a href="#home" class="logo">
+<nav class="nav">
 
-<div class="logo-symbol">⚜</div>
+<a href="#" class="brand">
 
-<div>
-<div class="logo-title">TS HISTORY</div>
-<span class="logo-sub">ACADEMIC HISTORY CENTER</span>
-</div>
+    <div class="brand-mark">
+        TS
+    </div>
+
+    <div>
+        <div class="brand-title">
+            TS HISTORY
+        </div>
+
+        <div class="brand-sub">
+            HISTORICAL STUDENT ARCHIVE
+        </div>
+    </div>
 
 </a>
 
-<nav>
 
-<button class="active" onclick="goTo('home',this)">
-მთავარი
-</button>
+<div class="nav-links">
 
-<button onclick="goTo('schedule',this)">
-📅 ცხრილი
-</button>
+    <a href="#archive">არქივი</a>
+    <a href="#chronology">ქრონოლოგია</a>
+    <a href="#about">პროექტის შესახებ</a>
 
-<button onclick="goTo('materials',this)">
-📚 მასალები
-</button>
+    <a
+        href="#"
+        class="login-nav"
+        onclick="openLogin();return false;"
+    >
+        შესვლა
+    </a>
 
-<button onclick="goTo('timeline',this)">
-⏳ ქრონოლოგია
-</button>
-
-<button onclick="goTo('sources',this)">
-📜 წყაროები
-</button>
-
-<button onclick="goTo('availability',this)">
-⏱ ჩემი დრო
-</button>
-
-<button onclick="openAdmin()">
-👑 Admin
-</button>
+</div>
 
 </nav>
 
 </header>
 
 
-<!-- HERO -->
+<!-- ================= MAIN ================= -->
 
-<section class="hero" id="home">
+<main id="mainSite">
 
-<div class="hero-content">
+<section class="hero">
 
-<div class="eyebrow">
-TS HISTORY • ACADEMIC YEAR 2026
-</div>
+<div class="hero-inner">
 
-<h1>
-ისტორია<br>
-დროის მიღმა.
-</h1>
+    <div class="eyebrow">
+        <span></span>
+        საქართველოს ისტორიის ციფრული არქივი
+    </div>
 
-<p>
-TS History არის ისტორიის სტუდენტებისთვის შექმნილი
-აკადემიური სივრცე, სადაც სასწავლო მასალები,
-კონსპექტები, ისტორიული წყაროები, ქრონოლოგია
-და აკადემიური ცხრილი ერთ სისტემაშია გაერთიანებული.
-</p>
 
-<div class="hero-buttons">
+    <h1>
+        ისტორია არ არის მხოლოდ
+        <em>წარსული.</em>
+        <br>
+        ის არის მეხსიერება.
+    </h1>
 
-<button class="btn gold-btn"
-onclick="goTo('schedule')">
-📅 ცხრილის გახსნა
-</button>
 
-<button class="btn dark-btn"
-onclick="goTo('materials')">
-📚 სასწავლო სივრცე
-</button>
+    <p class="hero-text">
+        TS History არის სტუდენტური ისტორიული სივრცე,
+        სადაც ერთ სივრცეში იყრის თავს სასწავლო მასალა,
+        კონსპექტები, ქრონოლოგია, ისტორიული წყაროები
+        და ყოველდღიური აკადემიური სამუშაო.
+    </p>
 
-</div>
+
+    <div class="hero-actions">
+
+        <button
+            class="primary"
+            onclick="openLogin()"
+        >
+            პირად სივრცეში შესვლა
+        </button>
+
+        <a
+            href="#chronology"
+            class="secondary"
+            style="text-decoration:none"
+        >
+            ქრონოლოგიის ნახვა
+        </a>
+
+    </div>
+
+
+    <div class="hero-meta">
+
+        <div class="meta-item">
+            <div class="meta-number">01</div>
+            <div class="meta-label">
+                ციფრული არქივი
+            </div>
+        </div>
+
+        <div class="meta-item">
+            <div class="meta-number">02</div>
+            <div class="meta-label">
+                ქრონოლოგია
+            </div>
+        </div>
+
+        <div class="meta-item">
+            <div class="meta-number">03</div>
+            <div class="meta-label">
+                სტუდენტური სივრცე
+            </div>
+        </div>
+
+    </div>
 
 </div>
 
 </section>
 
 
-<main class="container">
+<!-- ================= ARCHIVE ================= -->
 
+<section
+    class="section"
+    id="archive"
+>
 
-<!-- STATS -->
-
-<div class="stats">
-
-<div class="stat">
-<div class="stat-icon">◈</div>
-<div class="stat-number">24</div>
-<div class="stat-label">სასწავლო მასალა</div>
-</div>
-
-<div class="stat">
-<div class="stat-icon">📜</div>
-<div class="stat-number">18</div>
-<div class="stat-label">ისტორიული წყარო</div>
-</div>
-
-<div class="stat">
-<div class="stat-icon">⏳</div>
-<div class="stat-number">30+</div>
-<div class="stat-label">ქრონოლოგიური მოვლენა</div>
-</div>
-
-<div class="stat">
-<div class="stat-icon">📅</div>
-<div class="stat-number">4</div>
-<div class="stat-label">კვირის შეხვედრა</div>
-</div>
-
-</div>
-
-
-<!-- SCHEDULE -->
-
-<section class="block" id="schedule">
-
-<div class="section-title">
+<div class="section-head">
 
 <div>
-<h2>📜 Academic Schedule</h2>
-<p>შენი აკადემიური კვირის სრული განრიგი</p>
+    <div class="section-kicker">
+        TS / ARCHIVE
+    </div>
+
+    <h2>
+        ისტორიის სამუშაო სივრცე
+    </h2>
 </div>
 
-</div>
-
-<div class="schedule">
-
-<div class="schedule-top">
-
-<div class="schedule-heading">
-
-<div class="clock">◷</div>
-
-<div>
-<h2>კვირის ქრონიკა</h2>
-<p id="weekText">მიმდინარე აკადემიური კვირა</p>
-</div>
-
-</div>
-
-<div class="controls">
-
-<button onclick="changeWeek(-1)">‹</button>
-<button onclick="resetWeek()">●</button>
-<button onclick="changeWeek(1)">›</button>
-
-</div>
-
-</div>
-
-
-<div class="table-wrapper">
-
-<table class="schedule-table">
-
-<thead>
-
-<tr>
-<th>დრო</th>
-<th class="today">ორშაბათი<span class="today-mark"></span></th>
-<th>სამშაბათი</th>
-<th>ოთხშაბათი</th>
-<th>ხუთშაბათი</th>
-<th>პარასკევი</th>
-<th>შაბათი</th>
-<th>კვირა</th>
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-<td class="time">10:00</td>
-<td class="today"></td><td></td><td></td><td></td><td></td><td></td><td></td>
-</tr>
-
-<tr>
-
-<td class="time">12:00</td>
-
-<td class="today">
-
-<div class="lesson"
-onclick="lessonInfo('საქართველოს ისტორია','დავით აღმაშენებელი','12:00 — 13:30','გიორგი ბერიძე')">
-
-<div class="lesson-time">12:00 — 13:30</div>
-<div class="lesson-title">დავით აღმაშენებელი</div>
-<div class="lesson-person">👤 გიორგი ბერიძე</div>
-<span class="tag">HISTORY</span>
-
-</div>
-
-</td>
-
-<td></td><td></td><td></td><td></td><td></td><td></td>
-
-</tr>
-
-<tr>
-
-<td class="time">14:00</td>
-
-<td class="today"></td>
-
-<td>
-
-<div class="lesson"
-onclick="lessonInfo('მსოფლიო ისტორია','რომის იმპერია','14:00 — 15:30','ნიკა მაისურაძე')">
-
-<div class="lesson-time">14:00 — 15:30</div>
-<div class="lesson-title">რომის იმპერია</div>
-<div class="lesson-person">👤 ნიკა მაისურაძე</div>
-<span class="tag">WORLD</span>
-
-</div>
-
-</td>
-
-<td></td><td></td><td></td><td></td><td></td>
-
-</tr>
-
-<tr>
-
-<td class="time">16:00</td>
-
-<td class="today"></td>
-<td></td>
-<td></td>
-
-<td>
-
-<div class="lesson"
-onclick="lessonInfo('ისტორიული წყაროები','ქართლის ცხოვრება','16:00 — 17:00','თამარ კაპანაძე')">
-
-<div class="lesson-time">16:00 — 17:00</div>
-<div class="lesson-title">ქართლის ცხოვრება</div>
-<div class="lesson-person">👤 თამარ კაპანაძე</div>
-<span class="tag">SOURCES</span>
-
-</div>
-
-</td>
-
-<td></td><td></td><td></td>
-
-</tr>
-
-<tr>
-<td class="time">18:00</td>
-<td class="today"></td><td></td><td></td><td></td><td></td><td></td><td></td>
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- MATERIALS -->
-
-<section class="block" id="materials">
-
-<div class="section-title">
-
-<div>
-<h2>📚 სასწავლო მასალები</h2>
-<p>ისტორიის შესასწავლი ძირითადი მიმართულებები</p>
-</div>
-
-</div>
-
-<div class="academic-grid">
-
-<div class="academic-card">
-<div class="academic-icon">🏛️</div>
-<h3>საქართველოს ისტორია</h3>
-<p>
-უძველესი პერიოდიდან თანამედროვე
-საქართველოს ისტორიის ძირითადი საკითხები.
+<p class="section-intro">
+    მასალები დაყოფილია ისე, რომ საჭირო ინფორმაცია
+    სწრაფად იპოვო და სწავლის პროცესში გამოიყენო.
 </p>
-<button class="card-button" onclick="openResource('საქართველოს ისტორია')">
-გახსნა
-</button>
-</div>
-
-<div class="academic-card">
-<div class="academic-icon">⚔️</div>
-<h3>შუა საუკუნეები</h3>
-<p>
-ქართული სამეფოები, პოლიტიკური პროცესები,
-მნიშვნელოვანი მეფეები და მოვლენები.
-</p>
-<button class="card-button" onclick="openResource('შუა საუკუნეების საქართველო')">
-გახსნა
-</button>
-</div>
-
-<div class="academic-card">
-<div class="academic-icon">🌍</div>
-<h3>მსოფლიო ისტორია</h3>
-<p>
-ძველი ცივილიზაციები, რომი, შუა საუკუნეები
-და ახალი ისტორიის მნიშვნელოვანი მოვლენები.
-</p>
-<button class="card-button" onclick="openResource('მსოფლიო ისტორია')">
-გახსნა
-</button>
-</div>
-
-<div class="academic-card">
-<div class="academic-icon">👑</div>
-<h3>ქართული დინასტიები</h3>
-<p>
-ბაგრატიონები, დადიანები და საქართველოს
-პოლიტიკურ ისტორიაში მნიშვნელოვანი საგვარეულოები.
-</p>
-<button class="card-button" onclick="openResource('ქართული დინასტიები')">
-გახსნა
-</button>
-</div>
-
-<div class="academic-card">
-<div class="academic-icon">📖</div>
-<h3>კონსპექტების ბიბლიოთეკა</h3>
-<p>
-მოკლე, სტრუქტურირებული და გამოცდისთვის
-მოსახერხებელი სასწავლო ჩანაწერები.
-</p>
-<button class="card-button" onclick="openResource('კონსპექტები')">
-გახსნა
-</button>
-</div>
-
-<div class="academic-card">
-<div class="academic-icon">🗺️</div>
-<h3>ისტორიული რუკები</h3>
-<p>
-ისტორიული ტერიტორიები, სახელმწიფოები,
-სამეფოები და პოლიტიკური ცვლილებები.
-</p>
-<button class="card-button" onclick="openResource('ისტორიული რუკები')">
-გახსნა
-</button>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- TIMELINE -->
-
-<section class="block" id="timeline">
-
-<div class="section-title">
-
-<div>
-<h2>⏳ ისტორიული ქრონოლოგია</h2>
-<p>მნიშვნელოვანი მოვლენები დროის ხაზზე</p>
-</div>
-
-</div>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<div class="timeline-year">ანტიკური პერიოდი</div>
-<h3>ლაზიკა და დასავლეთ საქართველო</h3>
-<p>
-დასავლეთ საქართველოს ისტორიული განვითარების
-მნიშვნელოვანი პოლიტიკური და კულტურული პერიოდი.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">IV საუკუნე</div>
-<h3>ქრისტიანობის გავრცელება საქართველოში</h3>
-<p>
-ქრისტიანობის სახელმწიფოებრივად დამკვიდრების
-მნიშვნელოვანი ეტაპი.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">XI–XII საუკუნეები</div>
-<h3>საქართველოს პოლიტიკური აღმავლობა</h3>
-<p>
-საქართველოს გაერთიანებისა და პოლიტიკური
-გაძლიერების პერიოდი.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">XIX საუკუნე</div>
-<h3>საქართველოს რუსეთის იმპერიაში</h3>
-<p>
-საქართველოს პოლიტიკური სტატუსის ცვლილებისა
-და იმპერიული მმართველობის პერიოდი.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">1918</div>
-<h3>საქართველოს დემოკრატიული რესპუბლიკა</h3>
-<p>
-დამოუკიდებელი საქართველოს რესპუბლიკის შექმნა.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">1991</div>
-<h3>დამოუკიდებლობის აღდგენა</h3>
-<p>
-საქართველოს სახელმწიფოებრივი დამოუკიდებლობის
-აღდგენის ისტორიული ეტაპი.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- SOURCES -->
-
-<section class="block" id="sources">
-
-<div class="section-title">
-
-<div>
-<h2>📜 ისტორიული წყაროები</h2>
-<p>წყაროების ცალკე აკადემიური არქივი</p>
-</div>
-
-</div>
-
-<div class="source-list">
-
-<div class="source">
-
-<div class="source-left">
-
-<div class="source-icon">📜</div>
-
-<div>
-<h4>ქართლის ცხოვრება</h4>
-<span>ქართული ისტორიული ქრონიკების კრებული</span>
-</div>
-
-</div>
-
-<button class="card-button"
-onclick="openResource('ქართლის ცხოვრება')">
-ნახვა
-</button>
 
 </div>
 
 
-<div class="source">
-
-<div class="source-left">
-
-<div class="source-icon">🏛️</div>
-
-<div>
-<h4>ანტიკური ავტორები</h4>
-<span>სტრაბონი, პლინიუსი, პროკოპი და სხვ.</span>
-</div>
-
-</div>
-
-<button class="card-button"
-onclick="openResource('ანტიკური ავტორები')">
-ნახვა
-</button>
-
-</div>
-
-
-<div class="source">
-
-<div class="source-left">
-
-<div class="source-icon">⚜️</div>
-
-<div>
-<h4>ქართული ქრონიკები</h4>
-<span>საქართველოს პოლიტიკური ისტორიის წყაროები</span>
-</div>
-
-</div>
-
-<button class="card-button"
-onclick="openResource('ქართული ქრონიკები')">
-ნახვა
-</button>
-
-</div>
-
-
-<div class="source">
-
-<div class="source-left">
-
-<div class="source-icon">🌍</div>
-
-<div>
-<h4>უცხოური ისტორიული წყაროები</h4>
-<span>საქართველოს შესახებ არსებული ცნობები</span>
-</div>
-
-</div>
-
-<button class="card-button"
-onclick="openResource('უცხოური წყაროები')">
-ნახვა
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- AVAILABILITY -->
-
-<section class="block" id="availability">
-
-<div class="section-title">
-
-<div>
-<h2>⏱️ ჩემი თავისუფალი დრო</h2>
-<p>მიუთითე როდის შეგიძლია შეხვედრებზე დასწრება</p>
-</div>
-
-</div>
-
-<div class="availability">
-
+<div class="cards">
 
 <div class="card">
 
-<h3>შენი ხელმისაწვდომობა</h3>
+    <div class="card-number">
+        01 / MATERIALS
+    </div>
 
-<p class="card-description">
-მონიშნე სასურველი დღეები და დრო. ინფორმაცია
-ინახება ამ ბრაუზერში და შემდგომში შეიძლება
-გამოყენებულ იქნას ცხრილის დაგეგმვისთვის.
-</p>
+    <h3>
+        სასწავლო მასალები
+    </h3>
 
+    <p>
+        ლექციები, სასწავლო ტექსტები,
+        დოკუმენტები და დამატებითი მასალები.
+    </p>
 
-<div class="form-grid">
-
-<div>
-<label class="title">სახელი და გვარი</label>
-<input id="studentName" placeholder="მაგ. გიორგი ბერიძე">
-</div>
-
-<div>
-<label class="title">ჯგუფი</label>
-<input id="studentGroup" placeholder="მაგ. ისტორია I">
-</div>
-
-
-<div class="form-full">
-
-<label class="title">დღეები</label>
-
-<div class="days">
-
-<label class="day">
-<input type="checkbox" value="ორშაბათი">ორშ
-</label>
-
-<label class="day">
-<input type="checkbox" value="სამშაბათი">სამშ
-</label>
-
-<label class="day">
-<input type="checkbox" value="ოთხშაბათი">ოთხ
-</label>
-
-<label class="day">
-<input type="checkbox" value="ხუთშაბათი">ხუთ
-</label>
-
-<label class="day">
-<input type="checkbox" value="პარასკევი">პარ
-</label>
-
-<label class="day">
-<input type="checkbox" value="შაბათი">შაბ
-</label>
-
-<label class="day">
-<input type="checkbox" value="კვირა">კვირ
-</label>
-
-</div>
-
-</div>
-
-
-<div>
-<label class="title">დაწყება</label>
-<input id="fromTime" type="time" value="15:00">
-</div>
-
-<div>
-<label class="title">დასრულება</label>
-<input id="toTime" type="time" value="19:00">
-</div>
-
-
-<div class="form-full">
-
-<button
-class="btn gold-btn"
-style="width:100%"
-onclick="saveAvailability()">
-
-✦ თავისუფალი დროის შენახვა
-
-</button>
-
-</div>
-
-</div>
+    <div class="card-arrow">
+        →
+    </div>
 
 </div>
 
 
 <div class="card">
 
-<div class="next-label">NEXT EVENT</div>
+    <div class="card-number">
+        02 / NOTES
+    </div>
 
-<div class="next-title">
-ისტორიული წყაროები
+    <h3>
+        კონსპექტები
+    </h3>
+
+    <p>
+        მოკლე და სისტემატიზებული ჩანაწერები
+        მნიშვნელოვანი ისტორიული თემების შესახებ.
+    </p>
+
+    <div class="card-arrow">
+        →
+    </div>
+
 </div>
 
-<div class="next-time">
-16:00
+
+<div class="card">
+
+    <div class="card-number">
+        03 / SOURCES
+    </div>
+
+    <h3>
+        ისტორიული წყაროები
+    </h3>
+
+    <p>
+        წერილობითი, არქეოლოგიური და
+        სხვა ტიპის ისტორიული წყაროები.
+    </p>
+
+    <div class="card-arrow">
+        →
+    </div>
+
 </div>
 
-<div class="next-person">
-👤 თამარ კაპანაძე<br>
-📍 TS History Academic Session
+
+<div class="card">
+
+    <div class="card-number">
+        04 / SCHEDULE
+    </div>
+
+    <h3>
+        სასწავლო ცხრილი
+    </h3>
+
+    <p>
+        ლექციებისა და სასწავლო აქტივობების
+        პერსონალური განრიგი.
+    </p>
+
+    <div class="card-arrow">
+        →
+    </div>
+
 </div>
 
-<div class="progress">
-<span></span>
+
+<div class="card">
+
+    <div class="card-number">
+        05 / RESEARCH
+    </div>
+
+    <h3>
+        კვლევა
+    </h3>
+
+    <p>
+        თემები, ისტორიული პირები და
+        მოვლენები დამოუკიდებელი შესწავლისთვის.
+    </p>
+
+    <div class="card-arrow">
+        →
+    </div>
+
 </div>
+
+
+<div class="card">
+
+    <div class="card-number">
+        06 / STUDENT
+    </div>
+
+    <h3>
+        ჩემი სივრცე
+    </h3>
+
+    <p>
+        პირადი Dashboard, სასწავლო პროგრესი
+        და საკუთარი მასალები.
+    </p>
+
+    <div class="card-arrow">
+        →
+    </div>
 
 </div>
 
@@ -1500,313 +1025,582 @@ onclick="saveAvailability()">
 
 </section>
 
+
+<!-- ================= CHRONOLOGY ================= -->
+
+<section
+    class="timeline-section"
+    id="chronology"
+>
+
+<div class="timeline-wrap">
+
+<div class="section-head">
+
+<div>
+
+    <div class="section-kicker">
+        CHRONOLOGY / GEORGIA
+    </div>
+
+    <h2 style="color:white">
+        საქართველოს ისტორიის ქრონოლოგია
+    </h2>
+
+</div>
+
+<p class="section-intro" style="color:#9fa39c">
+    რამდენიმე საკვანძო ეტაპი საქართველოს მრავალსაუკუნოვანი
+    ისტორიის დასანახად.
+</p>
+
+</div>
+
+
+<div class="timeline-line">
+
+
+<div class="event">
+
+    <div class="event-year">
+        ძვ. წ. IV–III სს.
+    </div>
+
+    <h3>
+        ქართლის სამეფოს ჩამოყალიბება
+    </h3>
+
+    <p>
+        აღმოსავლეთ საქართველოში ქართლის
+        (იბერიის) სამეფო ჩამოყალიბდა და
+        რეგიონში მნიშვნელოვანი პოლიტიკური
+        ცენტრი გახდა.
+    </p>
+
+</div>
+
+
+<div class="event">
+
+    <div class="event-year">
+        IV საუკუნე
+    </div>
+
+    <h3>
+        ქრისტიანობის სახელმწიფო რელიგიად მიღება
+    </h3>
+
+    <p>
+        ქართლში ქრისტიანობა სახელმწიფო
+        რელიგიად დამკვიდრდა, რაც ქართული
+        კულტურისა და სახელმწიფოს განვითარების
+        ერთ-ერთ უმნიშვნელოვანეს ეტაპად იქცა.
+    </p>
+
+</div>
+
+
+<div class="event">
+
+    <div class="event-year">
+        978–1014
+    </div>
+
+    <h3>
+        ბაგრატ III
+    </h3>
+
+    <p>
+        ბაგრატ III-ის მმართველობის პერიოდში
+        გაერთიანებული ქართული სახელმწიფოს
+        ჩამოყალიბების პროცესი დასრულდა.
+    </p>
+
+</div>
+
+
+<div class="event">
+
+    <div class="event-year">
+        1121
+    </div>
+
+    <h3>
+        დიდგორის ბრძოლა
+    </h3>
+
+    <p>
+        დავით IV აღმაშენებლის მმართველობისას
+        დიდგორის ბრძოლა საქართველოს შუა
+        საუკუნეების ისტორიის ერთ-ერთ უმნიშვნელოვანეს
+        სამხედრო მოვლენად იქცა.
+    </p>
+
+</div>
+
+
+<div class="event">
+
+    <div class="event-year">
+        1184–1213
+    </div>
+
+    <h3>
+        თამარ მეფის ეპოქა
+    </h3>
+
+    <p>
+        საქართველოს სამეფოს პოლიტიკური,
+        ეკონომიკური და კულტურული განვითარების
+        მნიშვნელოვანი პერიოდი.
+    </p>
+
+</div>
+
+
+<div class="event">
+
+    <div class="event-year">
+        1783
+    </div>
+
+    <h3>
+        გეორგიევსკის ტრაქტატი
+    </h3>
+
+    <p>
+        ქართლ-კახეთის სამეფოსა და რუსეთის
+        იმპერიას შორის დაიდო ხელშეკრულება,
+        რომელმაც რეგიონში ძალთა ურთიერთობაზე
+        მნიშვნელოვანი გავლენა მოახდინა.
+    </p>
+
+</div>
+
+
+<div class="event">
+
+    <div class="event-year">
+        1918
+    </div>
+
+    <h3>
+        საქართველოს დამოუკიდებლობა
+    </h3>
+
+    <p>
+        26 მაისს საქართველოს დემოკრატიული
+        რესპუბლიკის დამოუკიდებლობა გამოცხადდა.
+    </p>
+
+</div>
+
+
+<div class="event">
+
+    <div class="event-year">
+        1991
+    </div>
+
+    <h3>
+        დამოუკიდებლობის აღდგენა
+    </h3>
+
+    <p>
+        9 აპრილს საქართველოს სახელმწიფოებრივი
+        დამოუკიდებლობის აღდგენა გამოცხადდა.
+    </p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section
+    class="section"
+    id="about"
+>
+
+<div class="section-head">
+
+<div>
+
+    <div class="section-kicker">
+        ABOUT / TS HISTORY
+    </div>
+
+    <h2>
+        რას ემსახურება პროექტი?
+    </h2>
+
+</div>
+
+<p class="section-intro">
+    ერთი ციფრული სივრცე ისტორიის შესწავლისთვის —
+    მასალის მოძიებიდან საკუთარი კონსპექტის შექმნამდე.
+</p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-number">
+        TS HISTORY / 2026
+    </div>
+
+    <h3>
+        მეხსიერება, წყარო და ცოდნა
+    </h3>
+
+    <p>
+        პროექტის მიზანია ისტორიული მასალის
+        ორგანიზებული ფორმით თავმოყრა და
+        სტუდენტისთვის მოსახერხებელი სასწავლო
+        გარემოს შექმნა.
+    </p>
+
+</div>
+
+</section>
 
 </main>
 
 
+<!-- ================= LOGIN ================= -->
+
+<div
+    class="overlay"
+    id="loginOverlay"
+>
+
+<div class="login-window">
+
+<div class="login-top">
+
+<button
+    class="close-login"
+    onclick="closeLogin()"
+>
+    ×
+</button>
+
+<small>
+    TS HISTORY / ACCESS
+</small>
+
+<h2>
+    პირად სივრცეში შესვლა
+</h2>
+
+</div>
+
+
+<div class="login-body">
+
+<div
+    class="error"
+    id="loginError"
+>
+    გთხოვ, ყველა აუცილებელი ველი სწორად შეავსე.
+</div>
+
+
+<div class="field">
+
+<label>
+    მომხმარებლის სახელი
+</label>
+
+<input
+    id="userName"
+    type="text"
+    placeholder="მაგ. გიორგი"
+    autocomplete="name"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+    ელფოსტა
+</label>
+
+<input
+    id="userEmail"
+    type="email"
+    placeholder="example@mail.com"
+    autocomplete="email"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+    ეროვნული გამოცდის სკალირებული ქულა
+</label>
+
+<input
+    id="userScore"
+    type="number"
+    min="0"
+    max="100"
+    step="0.1"
+    placeholder="მაგ. 78.4"
+>
+
+<div class="score-note">
+    შეიყვანე შენი ოფიციალური სკალირებული ქულა.
+    ეს ინფორმაცია გამოიყენება მხოლოდ შენი
+    პირადი პროფილის ჩვენებისთვის.
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>
+    პაროლი
+</label>
+
+<input
+    id="userPassword"
+    type="password"
+    placeholder="შექმენი პაროლი"
+    autocomplete="new-password"
+>
+
+</div>
+
+
+<button
+    class="login-submit"
+    onclick="enterDashboard()"
+>
+    პირად სივრცეში შესვლა
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section
+    class="dashboard"
+    id="dashboard"
+>
+
+<div class="dash-header">
+
+<div class="dash-inner">
+
+<div class="section-kicker">
+    PERSONAL / ARCHIVE
+</div>
+
+<h1 id="dashName">
+    მოგესალმები
+</h1>
+
+<div
+    class="user-line"
+    id="dashEmail"
+>
+</div>
+
+<div
+    class="user-score"
+    id="dashScore"
+>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="dashboard-content">
+
+<div class="dash-grid">
+
+<div class="dash-card">
+
+<span>📚</span>
+
+<h3>
+    სასწავლო მასალები
+</h3>
+
+<p>
+    წვდომა შენს სასწავლო მასალებზე
+    და ისტორიულ დოკუმენტებზე.
+</p>
+
+</div>
+
+
+<div class="dash-card">
+
+<span>📝</span>
+
+<h3>
+    ჩემი კონსპექტები
+</h3>
+
+<p>
+    პირადი ჩანაწერები და
+    მომზადებული სასწავლო ტექსტები.
+</p>
+
+</div>
+
+
+<div class="dash-card">
+
+<span>📅</span>
+
+<h3>
+    ჩემი ცხრილი
+</h3>
+
+<p>
+    ლექციები, დრო და
+    სასწავლო აქტივობები.
+</p>
+
+</div>
+
+
+<div class="dash-card">
+
+<span>🕰️</span>
+
+<h3>
+    ქრონოლოგია
+</h3>
+
+<p>
+    საქართველოს ისტორიის
+    მნიშვნელოვანი მოვლენები.
+</p>
+
+</div>
+
+
+<div class="dash-card">
+
+<span>📜</span>
+
+<h3>
+    ისტორიული წყაროები
+</h3>
+
+<p>
+    პირველადი და მეორეული
+    ისტორიული მასალები.
+</p>
+
+</div>
+
+
+<div class="dash-card">
+
+<span>🔎</span>
+
+<h3>
+    კვლევის სივრცე
+</h3>
+
+<p>
+    ისტორიული თემების
+    დამოუკიდებელი შესწავლა.
+</p>
+
+</div>
+
+</div>
+
+
+<button
+    class="logout-btn"
+    onclick="logoutUser()"
+>
+    ← საიტის მთავარ გვერდზე დაბრუნება
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-TS HISTORY • Academic History Center
-
+<strong>TS HISTORY</strong>
 <br><br>
-
-© 2026 TS History
+საქართველოს ისტორიის ციფრული სტუდენტური სივრცე
 
 </footer>
 
 
-<div id="toast"></div>
-
-
 <script>
 
-/* PARTICLES */
+/* =====================================================
+   LOGIN
+===================================================== */
 
-const particleBox=document.getElementById("particles");
+const overlay =
+    document.getElementById("loginOverlay");
 
-for(let i=0;i<55;i++){
+const mainSite =
+    document.getElementById("mainSite");
 
-    const p=document.createElement("div");
-
-    p.className="particle";
-
-    p.style.left=Math.random()*100+"%";
-
-    p.style.animationDuration=
-        (9+Math.random()*17)+"s";
-
-    p.style.animationDelay=
-        (-Math.random()*20)+"s";
-
-    particleBox.appendChild(p);
-}
+const dashboard =
+    document.getElementById("dashboard");
 
 
-/* NAVIGATION */
+function openLogin(){
 
-function goTo(id,button){
-
-    const target=document.getElementById(id);
-
-    if(!target)return;
-
-    target.scrollIntoView({
-        behavior:"smooth"
-    });
-
-    if(button){
-
-        document
-        .querySelectorAll("nav button")
-        .forEach(x=>x.classList.remove("active"));
-
-        button.classList.add("active");
-
-    }
+    overlay.classList.add("show");
 
 }
 
 
-/* ADMIN — ჯერ არ ვცვლით */
+function closeLogin(){
 
-function openAdmin(){
-
-    window.location.href="admin.html";
+    overlay.classList.remove("show");
 
 }
 
 
-/* LESSON INFO */
+function enterDashboard(){
 
-function lessonInfo(subject,title,time,teacher){
-
-    showToast(
-        "📚 "+subject+
-        " • "+title+
-        " • "+time+
-        " • "+teacher
-    );
-
-}
-
-
-/* RESOURCE */
-
-function openResource(name){
-
-    showToast(
-        "📚 არჩეულია: "+name
-    );
-
-}
-
-
-/* WEEK */
-
-let week=0;
-
-function changeWeek(direction){
-
-    week+=direction;
-
-    const text=
-        week===0
-        ?"მიმდინარე აკადემიური კვირა"
-        :week>0
-        ?"შემდეგი კვირა • +"+week
-        :"წინა კვირა • "+week;
-
-    document
-    .getElementById("weekText")
-    .textContent=text;
-
-    showToast("კვირის ხედვა შეიცვალა.");
-
-}
-
-function resetWeek(){
-
-    week=0;
-
-    document
-    .getElementById("weekText")
-    .textContent=
-    "მიმდინარე აკადემიური კვირა";
-
-}
-
-
-/* DAY SELECTION */
-
-document
-.querySelectorAll(".day")
-.forEach(day=>{
-
-    day.addEventListener("click",()=>{
-
-        setTimeout(()=>{
-
-            const input=
-                day.querySelector("input");
-
-            day.classList.toggle(
-                "selected",
-                input.checked
-            );
-
-        },0);
-
-    });
-
-});
-
-
-/* AVAILABILITY */
-
-function saveAvailability(){
-
-    const name=
-        document
-        .getElementById("studentName")
+    const name =
+        document.getElementById("userName")
         .value.trim();
 
-    const group=
-        document
-        .getElementById("studentGroup")
+    const email =
+        document.getElementById("userEmail")
         .value.trim();
 
-    const from=
-        document
-        .getElementById("fromTime")
-        .value;
-
-    const to=
-        document
-        .getElementById("toTime")
-        .value;
-
-    const days=
-        [...document.querySelectorAll(
-            ".day input:checked"
-        )]
-        .map(x=>x.value);
-
-
-    if(!name || !group || !days.length){
-
-        showToast(
-            "გთხოვ შეავსო სახელი, ჯგუფი და დღეები."
-        );
-
-        return;
-
-    }
-
-
-    const data={
-        name,
-        group,
-        days,
-        from,
-        to,
-        savedAt:new Date().toLocaleString("ka-GE")
-    };
-
-
-    localStorage.setItem(
-        "TS_HISTORY_AVAILABILITY",
-        JSON.stringify(data)
-    );
-
-
-    showToast(
-        "✦ თავისუფალი დრო წარმატებით შეინახა."
-    );
-
-}
-
-
-/* LOAD SAVED DATA */
-
-const saved=
-    localStorage.getItem(
-        "TS_HISTORY_AVAILABILITY"
-    );
-
-if(saved){
-
-    try{
-
-        const data=JSON.parse(saved);
-
-        document
-        .getElementById("studentName")
-        .value=data.name||"";
-
-        document
-        .getElementById("studentGroup")
-        .value=data.group||"";
-
-        document
-        .getElementById("fromTime")
-        .value=data.from||"15:00";
-
-        document
-        .getElementById("toTime")
-        .value=data.to||"19:00";
-
-
-        document
-        .querySelectorAll(".day input")
-        .forEach(input=>{
-
-            if(
-                data.days &&
-                data.days.includes(input.value)
-            ){
-
-                input.checked=true;
-
-                input
-                .closest(".day")
-                .classList.add("selected");
-
-            }
-
-        });
-
-    }catch(e){
-
-        console.log(e);
-
-    }
-
-}
-
-
-/* TOAST */
-
-function showToast(message){
-
-    const toast=
-        document.getElementById("toast");
-
-    toast.textContent=message;
-
-    toast.classList.add("show");
-
-    clearTimeout(window.toastTimer);
-
-    window.toastTimer=setTimeout(()=>{
-
-        toast.classList.remove("show");
-
-    },3200);
-
-}
-
-</script>
-
-</body>
-</html>
+    const score =
+        document.getElementById("userScore")
+        .
 ```
